@@ -111,11 +111,31 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus("submitting");
 
-    // Simulate form submission - replace with actual form handler (Formspree, etc.)
+    // Formspree integration - replace YOUR_FORM_ID with actual Formspree form ID
+    const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/YOUR_FORM_ID";
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setStatus("success");
-      setFormData({ name: "", email: "", category: "general", message: "" });
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          category: formData.category,
+          message: formData.message,
+          _subject: `NHF Contact: ${formData.category} inquiry from ${formData.name}`,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", category: "general", message: "" });
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
