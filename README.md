@@ -1,117 +1,114 @@
-# New Horizons Foundation — Website Project
+# New Horizons Foundation Website
 
-This repository contains the comprehensive planning documentation and development resources for the New Horizons Foundation website.
+This is the official website for **New Horizons Foundation (NHF)**, a national nonprofit organization dedicated to advancing mental health access, education, cultural enrichment, and leadership development.
 
-## About New Horizons Foundation
-
-New Horizons Foundation (NHF) is a national nonprofit organization dedicated to advancing mental health access, education, cultural enrichment, and leadership development. NHF exists to serve individuals, families, and communities through ethical practice, collaborative partnerships, and values-driven leadership.
-
-## Technology Stack (Selected)
+## Technology Stack
 
 | Component | Technology |
 |-----------|------------|
-| Framework | Next.js 14+ (App Router) |
-| Styling | Tailwind CSS |
-| CMS | Sanity.io |
-| Hosting | Vercel |
-| Forms | Formspree |
-| Donations | Donorbox |
-| Analytics | GA4 + Plausible |
-
-## Documentation
-
-### Core Documents
-
-| Document | Purpose |
-|----------|---------|
-| [`WEBSITE_DEVELOPMENT_PROMPT.md`](docs/WEBSITE_DEVELOPMENT_PROMPT.md) | Primary build specifications, architecture, components |
-| [`MARKETING_DELIVERY_STRATEGY.md`](docs/MARKETING_DELIVERY_STRATEGY.md) | Marketing strategy, delivery timeline, conversion optimization |
-| [`BRANDING_GUIDE.md`](docs/BRANDING_GUIDE.md) | Visual identity, colors, typography, voice/tone |
-| [`WEBSITE_CONTENT.md`](docs/WEBSITE_CONTENT.md) | All website copy organized by page |
-| [`SEO_KEYWORDS.md`](docs/SEO_KEYWORDS.md) | Keyword strategy, meta content, schema markup |
-
-### Document Details
-
-#### `WEBSITE_DEVELOPMENT_PROMPT.md`
-- Design requirements and patterns
-- Technical specifications
-- Site architecture (15+ pages)
-- Page-by-page specifications
-- Grant-readiness features
-- Accessibility requirements
-- Development phases
-- QA checklist
-
-#### `MARKETING_DELIVERY_STRATEGY.md`
-- Tech stack comparison and rationale
-- 7-week delivery timeline
-- Target audience segmentation
-- Content marketing strategy
-- SEO marketing approach
-- Email and social media strategy
-- Trust and credibility building
-- Conversion optimization
-- Analytics and KPIs
-- Launch checklist
-
-#### `BRANDING_GUIDE.md`
-- Brand essence and values
-- **Color palette** (extracted from logo):
-  - Horizons Green: `#1A5336`
-  - Foundation Blue: `#1565C0`
-  - Hope Gold: `#E8A730`
-  - Growth Green: `#5D9A41`
-  - Leaf Green: `#7AB648`
-- Typography (Inter/Montserrat)
-- Logo usage and symbolism
-- Imagery guidelines
-- Voice and tone standards
-
-#### `WEBSITE_CONTENT.md`
-- Complete site architecture
-- Page-by-page content
-- 15 leadership bios
-- 4 division descriptions
-- All meta content for SEO
-
-#### `SEO_KEYWORDS.md`
-- Tiered keyword lists
-- Page-specific title tags and meta descriptions
-- Schema.org markup templates
-- Local SEO considerations
-- Tracking plan
-
-## Assets
-
-### Available Resources
-- **Logo** — Provided (colors extracted)
-- **Headshots** — Available at: https://mydallascounselors.com/about-the-new-horizons-team/
-- **Gemini Pro 3 API** — For custom imagery generation
-- **Envato Elements** — Stock photography library
-
-### Assets Needed for Development
-- [ ] Logo in SVG format (for web optimization)
-- [ ] Logo in PNG format (various sizes)
-- [ ] Favicon (derived from logo)
-- [ ] Social media images (OG images)
-- [ ] Missing leadership headshots
+| Framework | Next.js 16 (App Router) |
+| Styling | Tailwind CSS v4 |
+| Language | TypeScript |
+| Hosting | Vercel (recommended) |
 
 ## Getting Started
 
-1. Review `WEBSITE_DEVELOPMENT_PROMPT.md` for full specifications
-2. Reference `BRANDING_GUIDE.md` for design standards
-3. Use `WEBSITE_CONTENT.md` for all copywriting
-4. Implement SEO per `SEO_KEYWORDS.md`
-5. Follow timeline in `MARKETING_DELIVERY_STRATEGY.md`
+### Prerequisites
 
-## Project Timeline
+- Node.js 18.17 or later
+- npm or yarn
 
-| Phase | Duration | Deliverables |
-|-------|----------|--------------|
-| Foundation | Weeks 1-3 | Homepage, About, Contact, Design System |
-| Core Content | Weeks 4-5 | Programs, Leadership, Partners, Donate |
-| Engagement | Weeks 6-7 | Donations, Newsletter, Analytics |
-| Amplification | Ongoing | Blog, Resources, Optimization |
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Build for Production
+
+```bash
+# Create production build
+npm run build
+
+# Start production server
+npm run start
+```
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── about/             # About page
+│   ├── contact/           # Contact page with form
+│   ├── programs/          # Programs pages
+│   ├── leadership/        # Leadership page
+│   ├── partners/          # Partners page
+│   ├── support/           # Support/Donate pages
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Homepage
+│   └── globals.css        # Global styles & brand colors
+├── components/
+│   ├── layout/            # Layout components (Header, Footer, Container)
+│   └── ui/                # UI components (Button, Card, Section)
+└── ...
+```
+
+## Brand Colors
+
+Extracted from the official NHF logo:
+
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Horizons Green | `#1A5336` | Primary brand color, CTAs |
+| Foundation Blue | `#1565C0` | Secondary color, links |
+| Hope Gold | `#E8A730` | Accent highlights |
+| Growth Green | `#5D9A41` | Secondary buttons |
+| Leaf Green | `#7AB648` | Hover states |
+
+## Documentation
+
+See the `/docs` folder for detailed planning documentation:
+
+- `WEBSITE_DEVELOPMENT_PROMPT.md` - Full specifications
+- `BRANDING_GUIDE.md` - Visual identity standards
+- `WEBSITE_CONTENT.md` - All website copy
+- `SEO_KEYWORDS.md` - SEO strategy
+- `MARKETING_DELIVERY_STRATEGY.md` - Marketing plan
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Create production build
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Adding New Pages
+
+1. Create a new folder in `src/app/` with the route name
+2. Add a `page.tsx` file with the page component
+3. Import and use layout components from `@/components/layout`
+4. Import UI components from `@/components/ui`
+
+## Deployment
+
+The recommended deployment platform is Vercel:
+
+1. Connect your repository to Vercel
+2. Configure environment variables (if any)
+3. Deploy automatically on push to main branch
+
+## License
+
+Copyright New Horizons Foundation. All rights reserved.
 
 ---
 
