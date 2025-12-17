@@ -56,34 +56,38 @@ Based on analysis of the provided inspiration sites (Grow Therapy, Talkspace, Ta
 
 ## Technical Specifications
 
-### Recommended Tech Stack
+### Recommended Tech Stack: Next.js + Sanity (SELECTED)
 
-**Option A: Modern JAMstack (Recommended for flexibility)**
-- Framework: Next.js 14+ with App Router
-- Styling: Tailwind CSS with custom design system
-- CMS: Sanity.io or Contentful (for content management)
-- Hosting: Vercel
-- Forms: Formspree or custom API routes
-- Analytics: Google Analytics 4 + Microsoft Clarity
+Based on requirements for **speed, accessibility, and maintainability**, the recommended stack is:
 
-**Option B: WordPress (If CMS familiarity needed)**
-- Theme: Custom theme or Flavor theme
-- Page Builder: Gutenberg or Elementor Pro
-- Hosting: WP Engine or Kinsta
-- Forms: Gravity Forms or WPForms
-- SEO: Yoast SEO Premium
+| Component | Technology | Rationale |
+|-----------|------------|-----------|
+| **Framework** | Next.js 14+ (App Router) | Best-in-class performance, SEO, static generation |
+| **Styling** | Tailwind CSS | Rapid development, design system consistency |
+| **CMS** | Sanity.io | User-friendly editing, free tier, real-time preview |
+| **Hosting** | Vercel | Optimal for Next.js, global CDN, automatic optimization |
+| **Forms** | Formspree | Simple, reliable, no backend needed |
+| **Donations** | Donorbox | Nonprofit-focused, low fees, embeddable |
+| **Analytics** | GA4 + Plausible | Comprehensive + privacy-friendly |
+| **Image Generation** | Gemini Pro 3 API | Custom illustrations available |
+| **Stock Photos** | Envato Elements | Library access available |
 
-**Option C: Webflow (If no-code preferred)**
-- Webflow CMS for content management
-- Webflow hosting
-- Memberstack for any member features
-- Zapier for integrations
+### Why This Stack Over WordPress
+
+| Factor | WordPress | Next.js + Sanity |
+|--------|-----------|------------------|
+| **Speed** | Requires heavy optimization | Fast by default (95+ Lighthouse) |
+| **Security** | Frequent vulnerabilities | Minimal attack surface |
+| **Hosting Cost** | $30-100/mo quality hosting | $0-20/mo on Vercel |
+| **SEO** | Good with plugins | Built-in, superior Core Web Vitals |
+| **Maintenance** | Constant updates needed | Minimal, auto deployments |
+| **Content Editing** | Familiar but dated | Modern, visual Sanity Studio |
 
 ### Performance Requirements
-- Lighthouse Performance Score: 90+
-- First Contentful Paint: < 1.5s
-- Largest Contentful Paint: < 2.5s
-- Cumulative Layout Shift: < 0.1
+- Lighthouse Performance Score: 95+
+- First Contentful Paint: < 1.0s
+- Largest Contentful Paint: < 2.0s
+- Cumulative Layout Shift: < 0.05
 - Mobile-first responsive design
 - Image optimization (WebP/AVIF with fallbacks)
 

@@ -30,29 +30,111 @@ To expand access to ethical mental health services, support those who serve our 
 
 ## 2. Color Palette
 
-> ⚠️ **NOTE**: Final color palette will be derived from the provided logo. Below are placeholder recommendations based on mental health nonprofit best practices.
+*Extracted from official New Horizons Foundation logo*
 
 ### Primary Colors
-Colors should evoke: trust, calm, professionalism, and hope.
 
-| Color Name | Hex Code | Usage |
-|------------|----------|-------|
-| Primary Blue | `#[TBD from logo]` | Primary brand color, headers, CTAs |
-| Secondary Teal | `#[TBD from logo]` | Accents, links, secondary buttons |
-| Foundation Navy | `#[TBD from logo]` | Text, footer, formal elements |
+| Color Name | Hex Code | RGB | Usage |
+|------------|----------|-----|-------|
+| **Horizons Green** | `#1A5336` | 26, 83, 54 | Primary brand color, "NEW HORIZONS" text, headings, primary CTAs |
+| **Foundation Blue** | `#1565C0` | 21, 101, 192 | "FOUNDATION" text, links, secondary CTAs, trust elements |
+| **Hope Gold** | `#E8A730` | 232, 167, 48 | Accent highlights, hope/warmth elements, featured callouts |
 
 ### Secondary Colors
+
+| Color Name | Hex Code | RGB | Usage |
+|------------|----------|-----|-------|
+| **Growth Green** | `#5D9A41` | 93, 154, 65 | Secondary buttons, success states, growth themes |
+| **Leaf Green** | `#7AB648` | 122, 182, 72 | Subtle accents, hover states, icons |
+| **Sky Blue** | `#2B7CB0` | 43, 124, 176 | Horizon arc element, light accents |
+
+### Extended Palette (UI Support)
+
 | Color Name | Hex Code | Usage |
 |------------|----------|-------|
-| Warm Gold/Amber | `#[TBD from logo]` | Highlights, hope/warmth accents |
-| Soft Sage/Green | `#[TBD from logo]` | Growth, healing, wellness sections |
-| Light Neutral | `#[TBD from logo]` | Backgrounds, cards, whitespace |
+| **Dark Text** | `#1A202C` | Body text, headings |
+| **Body Text** | `#2D3748` | Paragraph text |
+| **Muted Text** | `#718096` | Captions, secondary text |
+| **Light Background** | `#F7FAFC` | Page backgrounds, sections |
+| **Card Background** | `#FFFFFF` | Cards, elevated surfaces |
+| **Border Light** | `#E2E8F0` | Dividers, card borders |
+| **Success** | `#38A169` | Success messages, positive states |
+| **Warning** | `#D69E2E` | Warning messages |
+| **Error** | `#C53030` | Error messages, alerts |
 
-### Recommended Color Psychology for Mental Health Nonprofits
-- **Blues**: Trust, stability, professionalism, calm
-- **Teals/Greens**: Growth, healing, balance, nature
-- **Warm neutrals**: Approachability, comfort, safety
-- **Golds/Ambers**: Hope, warmth, optimism (used sparingly)
+### Color Psychology in Our Palette
+
+| Color | Psychological Association | NHF Application |
+|-------|--------------------------|-----------------|
+| **Horizons Green** | Growth, healing, nature, stability | Core brand identity, trust, grounding |
+| **Foundation Blue** | Trust, professionalism, calm, reliability | Credibility, formal elements, stability |
+| **Hope Gold** | Optimism, warmth, energy, hope | Accent for inspiration, highlighting hope |
+| **Growth Greens** | Renewal, balance, health, harmony | Program sections, wellness content |
+
+### CSS Custom Properties
+
+```css
+:root {
+  /* Primary */
+  --color-horizons-green: #1A5336;
+  --color-foundation-blue: #1565C0;
+  --color-hope-gold: #E8A730;
+
+  /* Secondary */
+  --color-growth-green: #5D9A41;
+  --color-leaf-green: #7AB648;
+  --color-sky-blue: #2B7CB0;
+
+  /* Neutrals */
+  --color-text-dark: #1A202C;
+  --color-text-body: #2D3748;
+  --color-text-muted: #718096;
+  --color-bg-light: #F7FAFC;
+  --color-bg-white: #FFFFFF;
+  --color-border: #E2E8F0;
+
+  /* States */
+  --color-success: #38A169;
+  --color-warning: #D69E2E;
+  --color-error: #C53030;
+}
+```
+
+### Tailwind CSS Configuration
+
+```javascript
+// tailwind.config.js colors extension
+colors: {
+  'horizons-green': '#1A5336',
+  'foundation-blue': '#1565C0',
+  'hope-gold': '#E8A730',
+  'growth-green': '#5D9A41',
+  'leaf-green': '#7AB648',
+  'sky-blue': '#2B7CB0',
+}
+```
+
+### Color Usage Guidelines
+
+**Primary CTAs (Donate, Get Involved):**
+- Background: `Horizons Green (#1A5336)`
+- Text: White
+- Hover: Darken 10%
+
+**Secondary CTAs (Learn More, Contact):**
+- Background: `Foundation Blue (#1565C0)`
+- Text: White
+- Hover: Darken 10%
+
+**Accent/Highlight CTAs:**
+- Background: `Hope Gold (#E8A730)`
+- Text: `Dark Text (#1A202C)`
+- Use sparingly for emphasis
+
+**Links:**
+- Default: `Foundation Blue (#1565C0)`
+- Hover: Darken 15%
+- Visited: `Horizons Green (#1A5336)`
 
 ### Accessibility Requirements
 - All color combinations must meet WCAG 2.1 AA contrast ratios (4.5:1 for normal text, 3:1 for large text)
@@ -97,7 +179,20 @@ Colors should evoke: trust, calm, professionalism, and hope.
 ## 4. Logo Usage
 
 ### Primary Logo
-[To be added when logo file is provided]
+
+The New Horizons Foundation logo consists of:
+- **Icon Mark**: A stylized lotus/flower with five rising petals symbolizing growth, hope, and renewal
+  - Center petal in **Hope Gold** representing optimism and new beginnings
+  - Four surrounding leaves in graduating **Greens** representing growth and healing
+  - A curved **Blue** horizon arc representing stability and the foundation's grounding presence
+- **Wordmark**: "NEW HORIZONS" in **Horizons Green** with "FOUNDATION" in **Foundation Blue**
+
+### Logo Symbolism
+- **Rising petals/leaves**: Growth, renewal, upward trajectory, hope
+- **Golden center**: The light of hope, warmth, new horizons
+- **Green leaves**: Healing, nature, organic growth, life
+- **Horizon arc**: Stability, foundation, the line between present and future
+- **Overall composition**: Balance, harmony, forward movement
 
 ### Logo Variations
 - **Full color** — Primary use on white/light backgrounds

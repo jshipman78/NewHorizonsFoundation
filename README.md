@@ -1,75 +1,117 @@
 # New Horizons Foundation — Website Project
 
-This repository contains the planning documentation and development resources for the New Horizons Foundation website.
+This repository contains the comprehensive planning documentation and development resources for the New Horizons Foundation website.
 
 ## About New Horizons Foundation
 
 New Horizons Foundation (NHF) is a national nonprofit organization dedicated to advancing mental health access, education, cultural enrichment, and leadership development. NHF exists to serve individuals, families, and communities through ethical practice, collaborative partnerships, and values-driven leadership.
 
+## Technology Stack (Selected)
+
+| Component | Technology |
+|-----------|------------|
+| Framework | Next.js 14+ (App Router) |
+| Styling | Tailwind CSS |
+| CMS | Sanity.io |
+| Hosting | Vercel |
+| Forms | Formspree |
+| Donations | Donorbox |
+| Analytics | GA4 + Plausible |
+
 ## Documentation
 
-### `/docs/WEBSITE_DEVELOPMENT_PROMPT.md`
-**The primary development prompt** — Contains comprehensive specifications for building the website including:
-- Design requirements and inspiration analysis
-- Technical specifications and recommended stack
-- Site architecture and page specifications
+### Core Documents
+
+| Document | Purpose |
+|----------|---------|
+| [`WEBSITE_DEVELOPMENT_PROMPT.md`](docs/WEBSITE_DEVELOPMENT_PROMPT.md) | Primary build specifications, architecture, components |
+| [`MARKETING_DELIVERY_STRATEGY.md`](docs/MARKETING_DELIVERY_STRATEGY.md) | Marketing strategy, delivery timeline, conversion optimization |
+| [`BRANDING_GUIDE.md`](docs/BRANDING_GUIDE.md) | Visual identity, colors, typography, voice/tone |
+| [`WEBSITE_CONTENT.md`](docs/WEBSITE_CONTENT.md) | All website copy organized by page |
+| [`SEO_KEYWORDS.md`](docs/SEO_KEYWORDS.md) | Keyword strategy, meta content, schema markup |
+
+### Document Details
+
+#### `WEBSITE_DEVELOPMENT_PROMPT.md`
+- Design requirements and patterns
+- Technical specifications
+- Site architecture (15+ pages)
+- Page-by-page specifications
 - Grant-readiness features
-- Imagery strategy
 - Accessibility requirements
 - Development phases
-- Quality assurance checklist
+- QA checklist
 
-### `/docs/BRANDING_GUIDE.md`
-**Visual identity and brand standards** — Contains:
+#### `MARKETING_DELIVERY_STRATEGY.md`
+- Tech stack comparison and rationale
+- 7-week delivery timeline
+- Target audience segmentation
+- Content marketing strategy
+- SEO marketing approach
+- Email and social media strategy
+- Trust and credibility building
+- Conversion optimization
+- Analytics and KPIs
+- Launch checklist
+
+#### `BRANDING_GUIDE.md`
 - Brand essence and values
-- Color palette (to be finalized with logo)
-- Typography specifications
-- Logo usage guidelines
+- **Color palette** (extracted from logo):
+  - Horizons Green: `#1A5336`
+  - Foundation Blue: `#1565C0`
+  - Hope Gold: `#E8A730`
+  - Growth Green: `#5D9A41`
+  - Leaf Green: `#7AB648`
+- Typography (Inter/Montserrat)
+- Logo usage and symbolism
 - Imagery guidelines
 - Voice and tone standards
-- Accessibility requirements
 
-### `/docs/WEBSITE_CONTENT.md`
-**All website copy and content** — Contains:
+#### `WEBSITE_CONTENT.md`
 - Complete site architecture
 - Page-by-page content
-- Leadership bios
-- Program descriptions
-- Meta content for SEO
-- All copywriting organized by page
+- 15 leadership bios
+- 4 division descriptions
+- All meta content for SEO
 
-### `/docs/SEO_KEYWORDS.md`
-**SEO keyword strategy** — Contains:
-- Tiered keyword lists (Brand, Primary, Long-tail, Supporting)
-- Keyword placement by page
-- Title tags and meta descriptions
-- Schema markup recommendations
-- Content strategy for topical authority
+#### `SEO_KEYWORDS.md`
+- Tiered keyword lists
+- Page-specific title tags and meta descriptions
+- Schema.org markup templates
 - Local SEO considerations
-- Tracking and measurement plan
+- Tracking plan
+
+## Assets
+
+### Available Resources
+- **Logo** — Provided (colors extracted)
+- **Headshots** — Available at: https://mydallascounselors.com/about-the-new-horizons-team/
+- **Gemini Pro 3 API** — For custom imagery generation
+- **Envato Elements** — Stock photography library
+
+### Assets Needed for Development
+- [ ] Logo in SVG format (for web optimization)
+- [ ] Logo in PNG format (various sizes)
+- [ ] Favicon (derived from logo)
+- [ ] Social media images (OG images)
+- [ ] Missing leadership headshots
 
 ## Getting Started
 
-1. Review the `WEBSITE_DEVELOPMENT_PROMPT.md` for full project specifications
-2. Reference `BRANDING_GUIDE.md` for visual design standards
-3. Use `WEBSITE_CONTENT.md` for all copywriting and content
-4. Implement SEO according to `SEO_KEYWORDS.md`
+1. Review `WEBSITE_DEVELOPMENT_PROMPT.md` for full specifications
+2. Reference `BRANDING_GUIDE.md` for design standards
+3. Use `WEBSITE_CONTENT.md` for all copywriting
+4. Implement SEO per `SEO_KEYWORDS.md`
+5. Follow timeline in `MARKETING_DELIVERY_STRATEGY.md`
 
-## Assets Needed
+## Project Timeline
 
-- [ ] Logo file (PNG, SVG formats)
-- [ ] Leadership headshots
-- [ ] Brand photography or generated imagery
-- [ ] Favicon and social media icons
-
-## Resources Available
-
-- **Gemini Pro 3 API** — For generating custom imagery/illustrations
-- **Envato Elements** — Stock photography library access
-
-## Contact
-
-For questions about this project, contact the project team.
+| Phase | Duration | Deliverables |
+|-------|----------|--------------|
+| Foundation | Weeks 1-3 | Homepage, About, Contact, Design System |
+| Core Content | Weeks 4-5 | Programs, Leadership, Partners, Donate |
+| Engagement | Weeks 6-7 | Donations, Newsletter, Analytics |
+| Amplification | Ongoing | Blog, Resources, Optimization |
 
 ---
 
