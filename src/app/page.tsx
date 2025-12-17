@@ -12,6 +12,48 @@ import {
   SectionTitle,
   SectionDescription,
 } from "@/components/ui/Section";
+import { HeroSlider, Slide } from "@/components/ui/HeroSlider";
+import { TrustIndicators } from "@/components/ui/ImpactStats";
+import { SectionDivider, DecorativeLeaf } from "@/components/ui/SectionDivider";
+
+const heroSlides: Slide[] = [
+  {
+    id: 1,
+    title: "New Horizons Foundation",
+    subtitle: "Advancing Mental Health & Community Resilience",
+    description:
+      "A national nonprofit dedicated to advancing mental health access, education, cultural enrichment, and leadership development.",
+    primaryCta: { label: "Support Our Mission", href: "/support" },
+    secondaryCta: { label: "Explore Programs", href: "/programs" },
+  },
+  {
+    id: 2,
+    title: "Mental Health Services",
+    subtitle: "Ethical, Evidence-Based Care",
+    description:
+      "Increasing access to mental health care and education for individuals, families, and communities through ethical practice and collaborative partnerships.",
+    primaryCta: { label: "Learn More", href: "/programs/mental-health" },
+    secondaryCta: { label: "Contact Us", href: "/contact" },
+  },
+  {
+    id: 3,
+    title: "Supporting Those Who Serve",
+    subtitle: "Veterans & First Responders",
+    description:
+      "Dedicated programs supporting the mental health and well-being of veterans, law enforcement, firefighters, EMTs, and their families.",
+    primaryCta: { label: "Our Programs", href: "/programs/veterans-first-responders" },
+    secondaryCta: { label: "Get Involved", href: "/support" },
+  },
+  {
+    id: 4,
+    title: "Developing Future Leaders",
+    subtitle: "Youth Leadership & Education",
+    description:
+      "Building the next generation of leaders grounded in character, responsibility, and service to their communities.",
+    primaryCta: { label: "Youth Programs", href: "/programs/youth-leadership" },
+    secondaryCta: { label: "Partner With Us", href: "/partners" },
+  },
+];
 
 const divisions = [
   {
@@ -113,190 +155,195 @@ export default function Home() {
     <>
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-horizons-green via-growth-green to-foundation-blue text-white overflow-hidden">
-          <div className="absolute inset-0 bg-black/10" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                New Horizons Foundation
-              </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-4">
-                Advancing Mental Health Access, Education, and Community
-                Resilience
-              </p>
-              <p className="text-lg text-white/80 mb-8 max-w-2xl">
-                New Horizons Foundation (NHF) is a national nonprofit
-                organization dedicated to advancing mental health access,
-                education, cultural enrichment, and leadership development. We
-                exist to serve individuals, families, and communities through
-                ethical practice, collaborative partnerships, and values-driven
-                leadership.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="/support" variant="accent" size="lg">
-                  Support Our Mission
-                </Button>
-                <Button
-                  href="/programs"
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-horizons-green"
-                >
-                  Explore Our Programs
-                </Button>
-              </div>
-            </div>
-          </div>
-          {/* Decorative element */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-white" style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0)" }} />
-        </section>
+        {/* Hero Slider */}
+        <HeroSlider slides={heroSlides} autoPlayInterval={7000} className="mt-4" />
+
+        {/* Trust Indicators Bar */}
+        <TrustIndicators />
 
         {/* Mission Preview Section */}
-        <Section background="white">
-          <SectionHeader>
-            <SectionTitle>Our Mission</SectionTitle>
-            <SectionDescription className="text-xl">
-              To expand access to ethical mental health services, support those
-              who serve our communities, foster cultural and relational
-              resilience, and develop future leaders through education,
-              collaboration, and service.
-            </SectionDescription>
-          </SectionHeader>
-          <div className="text-center">
-            <Button href="/about" variant="secondary">
-              Learn More About Our Values
-            </Button>
-          </div>
-        </Section>
-
-        {/* Four Pillars Section */}
-        <Section background="light">
-          <SectionHeader>
-            <SectionTitle>Our Four Pillars of Service</SectionTitle>
-            <SectionDescription>
-              NHF operates through four interconnected divisions, each focused
-              on a critical aspect of community well-being.
-            </SectionDescription>
-          </SectionHeader>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {divisions.map((division) => (
-              <Card key={division.title} href={division.href} className="group">
-                <CardHeader className="flex flex-row items-start gap-4">
-                  <div className="p-3 rounded-lg bg-horizons-green/10 text-horizons-green group-hover:bg-horizons-green group-hover:text-white transition-colors">
-                    {division.icon}
-                  </div>
-                  <div>
-                    <CardTitle className="group-hover:text-horizons-green transition-colors">
-                      {division.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardDescription className="text-base">
-                  {division.description}
-                </CardDescription>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Button href="/programs" variant="primary">
-              Explore All Programs
-            </Button>
-          </div>
-        </Section>
-
-        {/* Trust/Credibility Section */}
-        <Section background="white">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-text-dark mb-6">
-                Guided by Values, Driven by Service
-              </h2>
-              <p className="text-lg text-text-body mb-8">
-                Guided by principles of compassion, stewardship, service, and
-                accountability, NHF works alongside clinicians, educators,
-                community leaders, faith-based partners, and public-service
-                professionals to address the growing mental health needs facing
-                our nation.
-              </p>
-              <Button href="/leadership" variant="outline">
-                Meet Our Leadership
+        <div className="relative">
+          <Section background="white">
+            <DecorativeLeaf position="top-right" />
+            <SectionHeader>
+              <SectionTitle>Our Mission</SectionTitle>
+              <SectionDescription className="text-xl">
+                To expand access to ethical mental health services, support those
+                who serve our communities, foster cultural and relational
+                resilience, and develop future leaders through education,
+                collaboration, and service.
+              </SectionDescription>
+            </SectionHeader>
+            <div className="text-center">
+              <Button href="/about" variant="secondary">
+                Learn More About Our Values
               </Button>
             </div>
-            <div className="bg-bg-light rounded-2xl p-8">
-              <h3 className="font-semibold text-lg text-text-dark mb-6">
-                Trust Indicators
-              </h3>
-              <ul className="space-y-4">
-                {trustIndicators.map((indicator) => (
-                  <li key={indicator} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-horizons-green flex items-center justify-center flex-shrink-0">
-                      <svg
-                        className="w-4 h-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 12.75l6 6 9-13.5"
-                        />
-                      </svg>
+          </Section>
+          <SectionDivider variant="wave" fillColor="light" />
+        </div>
+
+        {/* Four Pillars Section */}
+        <div className="relative">
+          <Section background="light">
+            <SectionHeader>
+              <SectionTitle>Our Four Pillars of Service</SectionTitle>
+              <SectionDescription>
+                NHF operates through four interconnected divisions, each focused
+                on a critical aspect of community well-being.
+              </SectionDescription>
+            </SectionHeader>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {divisions.map((division) => (
+                <Card key={division.title} href={division.href} className="group">
+                  <CardHeader className="flex flex-row items-start gap-4">
+                    <div className="p-3 rounded-lg bg-horizons-green-50 text-horizons-green group-hover:bg-horizons-green group-hover:text-white transition-colors">
+                      {division.icon}
                     </div>
-                    <span className="text-text-body">{indicator}</span>
-                  </li>
-                ))}
-              </ul>
+                    <div>
+                      <CardTitle className="group-hover:text-horizons-green transition-colors">
+                        {division.title}
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardDescription className="text-base">
+                    {division.description}
+                  </CardDescription>
+                </Card>
+              ))}
             </div>
-          </div>
-        </Section>
+            <div className="text-center mt-10">
+              <Button href="/programs" variant="primary">
+                Explore All Programs
+              </Button>
+            </div>
+          </Section>
+          <SectionDivider variant="curve" fillColor="white" />
+        </div>
+
+        {/* Trust/Credibility Section */}
+        <div className="relative">
+          <Section background="white">
+            <DecorativeLeaf position="bottom-left" />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                  Guided by Values, Driven by Service
+                </h2>
+                <p className="text-lg text-text-body mb-8">
+                  Guided by principles of compassion, stewardship, service, and
+                  accountability, NHF works alongside clinicians, educators,
+                  community leaders, faith-based partners, and public-service
+                  professionals to address the growing mental health needs facing
+                  our nation.
+                </p>
+                <Button href="/leadership" variant="outline">
+                  Meet Our Leadership
+                </Button>
+              </div>
+              <div className="bg-bg-light rounded-2xl p-8">
+                <h3 className="font-semibold text-lg text-text-dark mb-6">
+                  Trust Indicators
+                </h3>
+                <ul className="space-y-4">
+                  {trustIndicators.map((indicator) => (
+                    <li key={indicator} className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-horizons-green flex items-center justify-center flex-shrink-0">
+                        <svg
+                          className="w-4 h-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 12.75l6 6 9-13.5"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-text-body">{indicator}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Section>
+          <SectionDivider variant="wave" fillColor="light" flip />
+        </div>
 
         {/* Partners Preview Section */}
-        <Section background="light">
-          <SectionHeader>
-            <SectionTitle>Collaborative Partnerships</SectionTitle>
-            <SectionDescription>
-              We collaborate with mental health professionals, educational
-              institutions, faith-based organizations, law enforcement, veteran
-              agencies, and community partners united by shared values and
-              commitment to community well-being.
-            </SectionDescription>
-          </SectionHeader>
-          <div className="text-center">
-            <Button href="/partners" variant="secondary">
-              View Our Partners
-            </Button>
-          </div>
-        </Section>
+        <div className="relative">
+          <Section background="light">
+            <SectionHeader>
+              <SectionTitle>Collaborative Partnerships</SectionTitle>
+              <SectionDescription>
+                We collaborate with mental health professionals, educational
+                institutions, faith-based organizations, law enforcement, veteran
+                agencies, and community partners united by shared values and
+                commitment to community well-being.
+              </SectionDescription>
+            </SectionHeader>
+            <div className="text-center">
+              <Button href="/partners" variant="secondary">
+                View Our Partners
+              </Button>
+            </div>
+          </Section>
+        </div>
 
         {/* Support CTA Section */}
-        <Section background="gradient">
-          <SectionHeader>
-            <SectionTitle className="text-white">
-              Support the Mission
-            </SectionTitle>
-            <SectionDescription className="text-white/90">
-              Your partnership enables NHF to expand mental health access,
-              develop future leaders, and strengthen communities. Join our
-              Founders Circle or explore sponsorship opportunities.
-            </SectionDescription>
-          </SectionHeader>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/support" variant="accent" size="lg">
-              Ways to Give
-            </Button>
-            <Button
-              href="/contact"
-              variant="outline"
-              size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
-            >
-              Contact Us
-            </Button>
-          </div>
-        </Section>
+        <div className="relative">
+          <SectionDivider variant="curve" position="top" fillColor="light" />
+          <section className="relative bg-horizons-green py-20 md:py-28 overflow-hidden">
+            {/* Subtle pattern overlay */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }} />
+            </div>
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl mx-auto text-center">
+                {/* Impact badge */}
+                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                  <svg className="w-5 h-5 text-hope-gold" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                  </svg>
+                  <span className="text-white text-sm font-semibold">
+                    Making a difference in communities nationwide
+                  </span>
+                </div>
+
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6" style={{ letterSpacing: "-0.02em" }}>
+                  Your Support Creates Real Impact
+                </h2>
+                <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">
+                  Every contribution enables NHF to expand mental health access,
+                  develop future leaders, and strengthen communities. Join our
+                  mission to build a healthier, more resilient society.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button href="/support" variant="accent" size="lg">
+                    Ways to Give
+                  </Button>
+                  <Button
+                    href="/contact"
+                    variant="outline"
+                    size="lg"
+                    className="border-2 border-white/40 text-white hover:bg-white/10 hover:border-white shadow-none"
+                  >
+                    Contact Us
+                  </Button>
+                </div>
+                {/* Trust marker */}
+                <p className="text-white/60 text-sm mt-8">
+                  501(c)(3) Tax-Deductible • 100% Secure Processing
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
       <Footer />
     </>

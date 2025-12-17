@@ -7,12 +7,26 @@ import {
   SectionTitle,
   SectionDescription,
 } from "@/components/ui/Section";
+import { JsonLd, createPersonSchema, createBreadcrumbSchema } from "@/components/seo";
 
 export const metadata: Metadata = {
   title: "Our Leadership Team | Clinicians, Educators & Experts",
   description:
     "Meet the experienced clinicians, educators, and community leaders guiding New Horizons Foundation's mission in mental health access and community well-being.",
+  openGraph: {
+    title: "Leadership Team | New Horizons Foundation",
+    description:
+      "Meet our experienced clinicians, educators, and community leaders guiding NHF's mission.",
+  },
+  alternates: {
+    canonical: "/leadership",
+  },
 };
+
+const breadcrumbs = createBreadcrumbSchema([
+  { name: "Home", url: "https://newhorizonsfoundation.org" },
+  { name: "Leadership", url: "https://newhorizonsfoundation.org/leadership" },
+]);
 
 interface LeaderProps {
   name: string;
@@ -32,6 +46,11 @@ const executiveLeadership: LeaderProps[] = [
 
 const directorsLeadership: LeaderProps[] = [
   {
+    name: "Ms. Gina Afshar",
+    title: "Director of National Operations (Foundation)",
+    bio: "Provides national operational coordination, cross-state collaboration, and program execution support for NHF initiatives.",
+  },
+  {
     name: "Mr. Joe Shipman",
     title: "Director of Strategic Communications, Brand Architecture & Media Partnerships (Designate)",
     bio: "Leads strategic vision for NHF's public voice, brand integrity, digital posture, and media relationships. Focuses on credibility, donor and grant readiness, and alignment of communications with mission and values.",
@@ -50,11 +69,6 @@ const directorsLeadership: LeaderProps[] = [
     name: "Dr. Catherine Hallam",
     title: "Director of Autism & Neurodevelopmental Programs (Arizona)",
     bio: "Leads autism and neurodevelopmental initiatives through community-based and educational programming. Specializes in neurodiversity-affirming practices, family support, and professional education.",
-  },
-  {
-    name: "Ms. Gina Afshar",
-    title: "Director of National Operations (Foundation)",
-    bio: "Provides national operational coordination, cross-state collaboration, and program execution support for NHF initiatives.",
   },
 ];
 
@@ -115,6 +129,20 @@ const legacyRecognition: LeaderProps[] = [
     title: "Founder of New Horizons Center for Healing — Foundational Influence & Legacy Honoree",
     bio: "Recognized for his enduring influence on generations of clinicians, educators, and leaders whose values and commitment to service inform the mission of New Horizons Foundation.",
   },
+];
+
+// Generate Person schemas for key leadership (executive and directors)
+const leadershipSchemas = [
+  ...executiveLeadership.map(leader => createPersonSchema({
+    name: leader.name,
+    jobTitle: leader.title,
+    description: leader.bio,
+  })),
+  ...directorsLeadership.map(leader => createPersonSchema({
+    name: leader.name,
+    jobTitle: leader.title,
+    description: leader.bio,
+  })),
 ];
 
 function LeaderCard({ leader, featured = false }: { leader: LeaderProps; featured?: boolean }) {
@@ -182,13 +210,14 @@ function LeadershipSection({
 export default function LeadershipPage() {
   return (
     <>
+      <JsonLd data={[breadcrumbs, ...leadershipSchemas]} />
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Leadership, Directors & Contributors
               </h1>
               <p className="text-xl text-white/90">
@@ -245,9 +274,8 @@ export default function LeadershipPage() {
             </Button>
             <Button
               href="/partners"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               Partnership Opportunities
             </Button>

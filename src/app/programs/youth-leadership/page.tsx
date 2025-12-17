@@ -7,12 +7,27 @@ import {
   SectionTitle,
   SectionDescription,
 } from "@/components/ui/Section";
+import { JsonLd, youthLeadershipServiceSchema, createBreadcrumbSchema } from "@/components/seo";
 
 export const metadata: Metadata = {
   title: "Youth Leadership & Education Programs | Character Development",
   description:
     "Developing the next generation of leaders through emotional intelligence, mentorship, service-based learning, and character education programs grounded in ethical values.",
+  openGraph: {
+    title: "Youth Leadership & Education | New Horizons Foundation",
+    description:
+      "Building future leaders through emotional intelligence, mentorship, and character education.",
+  },
+  alternates: {
+    canonical: "/programs/youth-leadership",
+  },
 };
+
+const breadcrumbs = createBreadcrumbSchema([
+  { name: "Home", url: "https://newhorizonsfoundation.org" },
+  { name: "Programs", url: "https://newhorizonsfoundation.org/programs" },
+  { name: "Youth Leadership", url: "https://newhorizonsfoundation.org/programs/youth-leadership" },
+]);
 
 const focusAreas = [
   {
@@ -59,14 +74,15 @@ const outcomes = [
 export default function YouthLeadershipPage() {
   return (
     <>
+      <JsonLd data={[youthLeadershipServiceSchema, breadcrumbs]} />
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-growth-green to-leaf-green text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-growth-green to-leaf-green text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <p className="text-white/80 font-medium mb-4">Our Programs</p>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Youth Leadership & Education
               </h1>
               <p className="text-xl text-white/90">
@@ -222,9 +238,8 @@ export default function YouthLeadershipPage() {
             </Button>
             <Button
               href="/programs"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               View All Programs
             </Button>

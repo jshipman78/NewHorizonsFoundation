@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SkipLink } from "@/components/ui/SkipLink";
+import { JsonLd, organizationSchema, websiteSchema } from "@/components/seo";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://newhorizonsfoundation.org"),
   title: {
     default: "New Horizons Foundation | Mental Health Nonprofit | Veterans, Youth & Community Programs",
     template: "%s | New Horizons Foundation",
@@ -18,6 +20,8 @@ export const metadata: Metadata = {
     "New Horizons Foundation",
   ],
   authors: [{ name: "New Horizons Foundation" }],
+  creator: "New Horizons Foundation",
+  publisher: "New Horizons Foundation",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -25,16 +29,41 @@ export const metadata: Metadata = {
     title: "New Horizons Foundation | Mental Health Nonprofit",
     description:
       "Advancing mental health access, education, and community resilience through ethical, values-driven programs.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "New Horizons Foundation Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "New Horizons Foundation",
     description:
       "Advancing mental health access, education, and community resilience.",
+    images: ["/logo.png"],
+    creator: "@newhorizonsorg",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Add your verification codes here when available
+    // google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -55,6 +84,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col font-sans">
+        <JsonLd data={[organizationSchema, websiteSchema]} />
         <SkipLink />
         <div id="main-content">
           {children}

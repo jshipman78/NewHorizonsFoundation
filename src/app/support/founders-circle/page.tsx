@@ -90,7 +90,7 @@ export default function FoundersCirclePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-white/80 font-medium mb-4">Support Us</p>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Founders Circle
               </h1>
               <p className="text-xl text-white/90">
@@ -240,9 +240,8 @@ export default function FoundersCirclePage() {
             </Button>
             <Button
               href="/support"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               Other Ways to Give
             </Button>

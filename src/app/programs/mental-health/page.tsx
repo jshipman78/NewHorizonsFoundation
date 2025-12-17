@@ -7,12 +7,27 @@ import {
   SectionTitle,
   SectionDescription,
 } from "@/components/ui/Section";
+import { JsonLd, mentalHealthServiceSchema, createBreadcrumbSchema } from "@/components/seo";
 
 export const metadata: Metadata = {
   title: "Mental Health Services & Education | Community Programs",
   description:
     "NHF's Mental Health Division provides evidence-based community services, clinical education, prevention programs, and professional development with ethical practice and cultural humility.",
+  openGraph: {
+    title: "Mental Health Services & Education | New Horizons Foundation",
+    description:
+      "Access ethical, evidence-based mental health care and education for individuals, families, and communities.",
+  },
+  alternates: {
+    canonical: "/programs/mental-health",
+  },
 };
+
+const breadcrumbs = createBreadcrumbSchema([
+  { name: "Home", url: "https://newhorizonsfoundation.org" },
+  { name: "Programs", url: "https://newhorizonsfoundation.org/programs" },
+  { name: "Mental Health", url: "https://newhorizonsfoundation.org/programs/mental-health" },
+]);
 
 const focusAreas = [
   {
@@ -50,14 +65,15 @@ const focusAreas = [
 export default function MentalHealthPage() {
   return (
     <>
+      <JsonLd data={[mentalHealthServiceSchema, breadcrumbs]} />
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-horizons-green to-growth-green text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-horizons-green to-growth-green text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <p className="text-white/80 font-medium mb-4">Our Programs</p>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Mental Health — Delivery & Services
               </h1>
               <p className="text-xl text-white/90">
@@ -165,9 +181,8 @@ export default function MentalHealthPage() {
             </Button>
             <Button
               href="/programs"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               View All Programs
             </Button>

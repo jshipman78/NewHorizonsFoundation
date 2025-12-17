@@ -68,10 +68,10 @@ export default function AboutPage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Our Mission, Ethics & Values
               </h1>
               <p className="text-xl text-white/90">
@@ -91,13 +91,19 @@ export default function AboutPage() {
             </p>
             <SectionTitle as="h2">Why We Exist</SectionTitle>
           </SectionHeader>
-          <div className="max-w-4xl mx-auto">
-            <blockquote className="text-2xl md:text-3xl text-text-dark font-medium text-center leading-relaxed border-l-4 border-hope-gold pl-6 md:pl-8 py-4">
-              To expand access to ethical mental health services, support those
-              who serve our communities, foster cultural and relational
-              resilience, and develop future leaders through education,
-              collaboration, and service.
-            </blockquote>
+          <div className="max-w-3xl mx-auto">
+            <div className="relative py-4">
+              {/* Centered accent mark */}
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-1 bg-hope-gold rounded-full" />
+              <blockquote className="text-2xl md:text-3xl text-text-dark font-medium text-center leading-relaxed py-8 px-6 md:px-12">
+                To expand access to ethical mental health services, support those
+                who serve our communities, foster cultural and relational
+                resilience, and develop future leaders through education,
+                collaboration, and service.
+              </blockquote>
+              {/* Bottom accent for balance */}
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1 bg-hope-gold rounded-full" />
+            </div>
           </div>
         </Section>
 
@@ -186,9 +192,8 @@ export default function AboutPage() {
             </Button>
             <Button
               href="/contact"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               Get in Touch
             </Button>

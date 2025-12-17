@@ -108,10 +108,10 @@ export default function ProgramsPage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Our Programs
               </h1>
               <p className="text-xl text-white/90">
@@ -140,7 +140,7 @@ export default function ProgramsPage() {
               <Card
                 key={division.title}
                 hover={false}
-                className={`p-8 ${index % 2 === 1 ? "bg-bg-light" : ""}`}
+                className="p-8 bg-white border border-border"
               >
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="md:col-span-1">
@@ -235,9 +235,8 @@ export default function ProgramsPage() {
             </Button>
             <Button
               href="/support"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               Support Our Mission
             </Button>

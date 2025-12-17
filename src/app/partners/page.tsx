@@ -102,10 +102,10 @@ export default function PartnersPage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Partners & Collaborations
               </h1>
               <p className="text-xl text-white/90">
@@ -147,7 +147,7 @@ export default function PartnersPage() {
             {partnerCategories.map((category) => (
               <div
                 key={category.title}
-                className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-6 border border-border"
               >
                 <div className="w-14 h-14 rounded-lg bg-horizons-green/10 text-horizons-green flex items-center justify-center mb-4">
                   {category.icon}
@@ -267,9 +267,8 @@ export default function PartnersPage() {
             </Button>
             <Button
               href="/support"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               Support Our Mission
             </Button>

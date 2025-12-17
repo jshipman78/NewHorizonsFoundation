@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactNode, ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "accent" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "accent" | "outline" | "outline-light" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonBaseProps {
@@ -25,15 +25,17 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-horizons-green text-white hover:bg-opacity-90 focus:ring-horizons-green",
+    "bg-horizons-green text-white shadow-md hover:bg-horizons-green-700 hover:shadow-lg hover:-translate-y-0.5 focus:ring-horizons-green",
   secondary:
-    "bg-foundation-blue text-white hover:bg-opacity-90 focus:ring-foundation-blue",
+    "bg-foundation-blue text-white shadow-md hover:bg-foundation-blue-700 hover:shadow-lg hover:-translate-y-0.5 focus:ring-foundation-blue",
   accent:
-    "bg-hope-gold text-text-dark hover:bg-opacity-90 focus:ring-hope-gold",
+    "bg-hope-gold text-text-dark shadow-md hover:bg-hope-gold-600 hover:shadow-lg hover:-translate-y-0.5 focus:ring-hope-gold",
   outline:
-    "border-2 border-horizons-green text-horizons-green hover:bg-horizons-green hover:text-white focus:ring-horizons-green",
+    "border-2 border-horizons-green text-horizons-green hover:bg-horizons-green hover:text-white hover:-translate-y-0.5 focus:ring-horizons-green",
+  "outline-light":
+    "border-2 border-white text-white hover:bg-white hover:text-horizons-green hover:-translate-y-0.5 focus:ring-white",
   ghost:
-    "text-foundation-blue hover:bg-bg-light focus:ring-foundation-blue",
+    "text-foundation-blue hover:bg-foundation-blue-50 hover:text-foundation-blue-700 focus:ring-foundation-blue",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

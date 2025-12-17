@@ -101,10 +101,10 @@ export default function SupportPage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Support the Mission
               </h1>
               <p className="text-xl text-white/90">
@@ -148,14 +148,14 @@ export default function SupportPage() {
               families, businesses, and organizations are welcome to participate.
             </SectionDescription>
           </SectionHeader>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 items-start">
             {givingLevels.map((level) => (
               <div
                 key={level.name}
-                className={`bg-white rounded-xl p-8 ${
+                className={`relative bg-white rounded-xl p-8 transition-all ${
                   level.highlighted
-                    ? "border-2 border-hope-gold shadow-lg ring-2 ring-hope-gold/20"
-                    : "border border-border"
+                    ? "border-2 border-hope-gold shadow-xl ring-4 ring-hope-gold/10 md:scale-105 z-10"
+                    : "border border-border shadow-sm"
                 }`}
               >
                 {level.highlighted && (
@@ -352,9 +352,8 @@ export default function SupportPage() {
             </Button>
             <Button
               href="/programs"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               Learn About Our Programs
             </Button>

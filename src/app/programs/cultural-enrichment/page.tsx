@@ -7,12 +7,27 @@ import {
   SectionTitle,
   SectionDescription,
 } from "@/components/ui/Section";
+import { JsonLd, culturalEnrichmentServiceSchema, createBreadcrumbSchema } from "@/components/seo";
 
 export const metadata: Metadata = {
   title: "Cultural Enrichment & Community Healing Programs",
   description:
     "Strengthening mental health outcomes through culturally responsive programs, community dialogue, stigma reduction, and intergenerational healing initiatives.",
+  openGraph: {
+    title: "Cultural Enrichment & Community Healing | New Horizons Foundation",
+    description:
+      "Culturally responsive mental health programs that honor culture, identity, and shared meaning.",
+  },
+  alternates: {
+    canonical: "/programs/cultural-enrichment",
+  },
 };
+
+const breadcrumbs = createBreadcrumbSchema([
+  { name: "Home", url: "https://newhorizonsfoundation.org" },
+  { name: "Programs", url: "https://newhorizonsfoundation.org/programs" },
+  { name: "Cultural Enrichment", url: "https://newhorizonsfoundation.org/programs/cultural-enrichment" },
+]);
 
 const focusAreas = [
   {
@@ -50,14 +65,15 @@ const focusAreas = [
 export default function CulturalEnrichmentPage() {
   return (
     <>
+      <JsonLd data={[culturalEnrichmentServiceSchema, breadcrumbs]} />
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-hope-gold to-horizons-green text-white py-20 md:py-28">
+        <section className="bg-gradient-to-r from-hope-gold to-horizons-green text-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <p className="text-white/80 font-medium mb-4">Our Programs</p>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Cultural Enrichment & Community Healing
               </h1>
               <p className="text-xl text-white/90">
@@ -252,9 +268,8 @@ export default function CulturalEnrichmentPage() {
             </Button>
             <Button
               href="/programs"
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-horizons-green"
             >
               View All Programs
             </Button>

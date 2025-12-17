@@ -1,21 +1,33 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
+type CardVariant = "default" | "featured" | "outlined";
+
 interface CardProps {
   children: ReactNode;
   className?: string;
   href?: string;
   hover?: boolean;
+  variant?: CardVariant;
 }
+
+const variantClasses: Record<CardVariant, string> = {
+  default: "bg-white border-border",
+  featured: "bg-gradient-to-br from-horizons-green-50 to-foundation-blue-50 border-horizons-green-200",
+  outlined: "bg-transparent border-2 border-horizons-green-300",
+};
 
 export function Card({
   children,
   className = "",
   href,
   hover = true,
+  variant = "default",
 }: CardProps) {
-  const baseClasses = `bg-white rounded-xl border border-border p-6 ${
-    hover ? "hover:shadow-lg hover:border-horizons-green/20 transition-all duration-300" : ""
+  const baseClasses = `rounded-xl border p-6 shadow-sm ${variantClasses[variant]} ${
+    hover
+      ? "hover:shadow-xl hover:border-horizons-green-300 hover:-translate-y-1 transition-all duration-300"
+      : ""
   } ${className}`;
 
   if (href) {
