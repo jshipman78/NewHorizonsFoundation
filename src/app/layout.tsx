@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SkipLink } from "@/components/ui/SkipLink";
 
 export const metadata: Metadata = {
   title: {
@@ -54,7 +55,10 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col font-sans">
-        {children}
+        <SkipLink />
+        <div id="main-content">
+          {children}
+        </div>
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Logo } from "@/components/ui/Logo";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -20,19 +21,8 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-horizons-green rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">NH</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-horizons-green font-semibold text-lg">
-                  New Horizons
-                </span>
-                <span className="text-foundation-blue font-semibold text-lg ml-1">
-                  Foundation
-                </span>
-              </div>
-            </Link>
+            <Logo size="md" className="hidden sm:flex" />
+            <Logo size="sm" variant="icon" className="sm:hidden" />
           </div>
 
           {/* Desktop Navigation */}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 
 const footerNavigation = {
   about: [
@@ -30,19 +31,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-horizons-green rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">NH</span>
-              </div>
-              <div>
-                <span className="text-white font-semibold text-lg">
-                  New Horizons
-                </span>
-                <span className="text-foundation-blue font-semibold text-lg ml-1">
-                  Foundation
-                </span>
-              </div>
-            </Link>
+            <div className="mb-4">
+              <Logo size="md" theme="dark" />
+            </div>
             <p className="text-gray-400 text-sm max-w-sm mb-4">
               Advancing mental health access, education, cultural enrichment,
               and leadership development through ethical practice and
