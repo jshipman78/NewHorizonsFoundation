@@ -338,7 +338,7 @@ export default function Home() {
                 </div>
                 {/* Trust marker */}
                 <p className="text-white/60 text-sm mt-8">
-                  501(c)(3) Tax-Deductible • 100% Secure Processing
+                  501(c)(3) Tax-Deductible • Secure Processing
                 </p>
               </div>
             </div>
