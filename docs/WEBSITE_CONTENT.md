@@ -267,6 +267,14 @@ This document extracts and organizes all content from the provided materials, st
 
 ### Directors & Senior Leadership
 
+#### Ms. Gina Afshar
+**Title:** Director of National Operations (Foundation)
+
+**Bio:**
+> Provides national operational coordination, cross-state collaboration, and program execution support for NHF initiatives.
+
+---
+
 #### Mr. Joe Shipman
 **Title:** Director of Strategic Communications, Brand Architecture & Media Partnerships (Designate)
 
@@ -276,7 +284,7 @@ This document extracts and organizes all content from the provided materials, st
 ---
 
 #### Dr. LaVelle Hendricks
-**Title:** Director of Community Partnerships & Civic Engagement
+**Title:** Director of Community Partnerships & Civic Engagement (Designate)
 
 **Bio:**
 > Leads civic, faith-based, and community partnerships. Brings extensive experience in civil rights leadership, public engagement, and community advocacy.
@@ -284,10 +292,10 @@ This document extracts and organizes all content from the provided materials, st
 ---
 
 #### Dr. Tannaz Moein
-**Title:** Director of Youth Leadership Programs
+**Title:** Director of Clinical Operations and Youth Leadership Programs
 
 **Bio:**
-> Oversees youth leadership and education initiatives, integrating emotional intelligence, mentorship, and service-oriented leadership. Experienced clinician and program developer with a strong background in supervision and community education.
+> Oversees the Foundation's mental health clinical and supervision operations, while also leading youth leadership and education initiatives. Integrates emotional intelligence, mentorship, ethical practice, and service-oriented leadership across clinical and community-based programming.
 
 ---
 
@@ -295,15 +303,7 @@ This document extracts and organizes all content from the provided materials, st
 **Title:** Director of Autism & Neurodevelopmental Programs (Arizona)
 
 **Bio:**
-> Leads autism and neurodevelopmental initiatives through community-based and educational programming. Specializes in neurodiversity-affirming practices, family support, and professional education.
-
----
-
-#### Ms. Gina Afshar
-**Title:** Director of National Operations (Foundation)
-
-**Bio:**
-> Provides national operational coordination, cross-state collaboration, and program execution support for NHF initiatives.
+> Leads autism and neurodevelopmental initiatives through community-based and educational programming.
 
 ---
 
@@ -313,7 +313,7 @@ This document extracts and organizes all content from the provided materials, st
 **Title:** Senior Director of Operations & Administrative Services
 
 **Bio:**
-> Provides operational leadership, administrative oversight, and systems coordination supporting NHF programs and partnerships. Brings extensive experience in clinical operations, organizational management, and cross-functional leadership.
+> Provides operational leadership, administrative oversight, and systems coordination supporting NHF programs and partnerships.
 
 ---
 
@@ -321,15 +321,39 @@ This document extracts and organizes all content from the provided materials, st
 **Title:** Director of Program Development & Grants
 
 **Bio:**
-> Leads program design, grant development, and funding strategy for NHF initiatives. Brings expertise in translating mission into fundable programs, aligning outcomes with grant requirements, and supporting long-term sustainability.
+> Leads program design, grant development, and funding strategy for NHF initiatives.
 
 ---
 
-#### Officer Lorenzo "Enzo" Ortiz
-**Title:** Advisor — Law Enforcement & First Responder Programs
+#### Dr. Solomon Tention
+**Title:** Director of African-American Leadership & Community Impact
 
 **Bio:**
-> Advises on law enforcement culture, first-responder mental health needs, crisis response, and cross-system collaboration. Provides critical insight into officer wellness and public-safety partnerships.
+> Provides leadership development, civic engagement strategy, and culturally grounded programming advancing equity and community empowerment.
+
+---
+
+#### Dr. Armando Peelman
+**Title:** Director of Substance Use & Couples Programming (Arizona)
+
+**Bio:**
+> Leads substance-use and couples-focused clinical education and community programming. (Designate)
+
+---
+
+#### Mrs. Wendy Pierce
+**Title:** Director of Eating Disorder Programs
+
+**Bio:**
+> Leads education, prevention, and recovery-oriented initiatives addressing eating disorders and body image. (Designate)
+
+---
+
+#### Mrs. Shanna Wilder
+**Title:** Director of Sexual Health & Education Programs
+
+**Bio:**
+> Leads sex education and relational health initiatives grounded in evidence-based and ethical practice. (Designate)
 
 ---
 
@@ -337,59 +361,64 @@ This document extracts and organizes all content from the provided materials, st
 **Title:** Program Lead — Grief, Aging & Life Transitions
 
 **Bio:**
-> Leads program development and education related to grief, bereavement, aging, and life transitions, supporting individuals and families navigating later-life challenges.
+> Leads program development and education related to grief, bereavement, aging, and life transitions. (Designate)
 
 ---
 
 #### Dr. Ryan Smith
-**Title:** Program Contributor — Clinical Education & Skills-Based Programming
+**Title:** Program Contributor — Clinical and School Counseling Education & Skills-Based Programming
 
 **Bio:**
-> Contributes to clinical education initiatives, skills-based programming, and professional training content. Brings expertise in mental health education and scalable program development.
+> Contributes to clinical education initiatives and professional training content.
+
+---
+
+#### Miss Ariana Meshinchi
+**Title:** EMT Fellow — College Station
+
+**Bio:**
+> Supports emergency response, informed education, community outreach, and training initiatives through a public-health and first-responder lens.
 
 ---
 
 ### Medical, Clinical & Financial Oversight
 
-#### Dr. Babak Abbassi
+#### Dr. Babak Abbassi, M.D. (General Surgeon)
 **Title:** Director of Medical Operations (Advisory)
 
 **Bio:**
-> Provides medical oversight and strategic guidance related to integrated care models, psychiatric collaboration, and medical–mental health alignment across NHF initiatives.
+> Provides medical oversight and strategic guidance related to integrated care models, interdisciplinary collaboration, and alignment between medical and mental health services across Foundation initiatives.
 
 ---
 
-#### Dr. Bahar Abbassi
-**Title:** Advisory — Integrative Medical Wellness & Aesthetic Strategy
+#### Dr. Bahar Abbassi, M.D. (Plastic Surgeon)
+**Title:** Director of Integrative Medical Wellness & Aesthetic Strategy
 
 **Bio:**
-> Advises on integrative wellness initiatives, public education, and medical-wellness collaboration aligned with NHF's outreach and community health goals.
+> Provides strategic program guidance on integrative wellness initiatives, public education, and medical–wellness collaboration aligned with the Foundation's community health and outreach goals.
 
 ---
 
-#### Dave Kessel, CPA
-**Title:** Financial Advisor & Compliance Consultant
+#### Mr. Dave Kessel, CPA
+**Title:** Director of Financial, Tax & Compliance Oversight
 
 **Bio:**
-> Provides financial oversight, accounting guidance, and compliance consultation to support responsible stewardship, transparency, and regulatory alignment for New Horizons Foundation.
+> Provides financial leadership, accounting guidance, tax compliance, and regulatory alignment to ensure transparency and responsible stewardship. (Designate)
 
 ---
-
-### Research, Education & Institutional Advisory
 
 #### Dr. Alan Francis
-**Title:** Advisory — Research & Instructional Design
+**Title:** Director of Research & Instructional Design
 
 **Bio:**
-> Provides guidance on research integration, instructional design, curriculum development, and evidence-based educational programming.
+> Leads research integration, instructional design, curriculum development, and evidence-based educational programming.
 
 ---
 
 ### Legacy & Honorary Recognition
 
 #### Dr. Amir Abbasi (In Memoriam)
-**Title:** Founder of New Horizons Center for Healing
-**Recognition:** Foundational Influence & Legacy Honoree
+**Title:** Founder of New Horizons Center for Healing — Foundational Influence & Legacy Honoree
 
 **Bio:**
 > Recognized for his enduring influence on generations of clinicians, educators, and leaders whose values and commitment to service inform the mission of New Horizons Foundation.

@@ -57,18 +57,18 @@ const directorsLeadership: LeaderProps[] = [
   },
   {
     name: "Dr. LaVelle Hendricks",
-    title: "Director of Community Partnerships & Civic Engagement",
+    title: "Director of Community Partnerships & Civic Engagement (Designate)",
     bio: "Leads civic, faith-based, and community partnerships. Brings extensive experience in civil rights leadership, public engagement, and community advocacy.",
   },
   {
     name: "Dr. Tannaz Moein",
-    title: "Director of Youth Leadership Programs",
-    bio: "Oversees youth leadership and education initiatives, integrating emotional intelligence, mentorship, and service-oriented leadership. Experienced clinician and program developer with a strong background in supervision and community education.",
+    title: "Director of Clinical Operations and Youth Leadership Programs",
+    bio: "Oversees the Foundation's mental health clinical and supervision operations, while also leading youth leadership and education initiatives. Integrates emotional intelligence, mentorship, ethical practice, and service-oriented leadership across clinical and community-based programming.",
   },
   {
     name: "Dr. Catherine Hallam",
     title: "Director of Autism & Neurodevelopmental Programs (Arizona)",
-    bio: "Leads autism and neurodevelopmental initiatives through community-based and educational programming. Specializes in neurodiversity-affirming practices, family support, and professional education.",
+    bio: "Leads autism and neurodevelopmental initiatives through community-based and educational programming.",
   },
 ];
 
@@ -76,50 +76,70 @@ const programLeadership: LeaderProps[] = [
   {
     name: "Mrs. Erin Perry",
     title: "Senior Director of Operations & Administrative Services",
-    bio: "Provides operational leadership, administrative oversight, and systems coordination supporting NHF programs and partnerships. Brings extensive experience in clinical operations, organizational management, and cross-functional leadership.",
+    bio: "Provides operational leadership, administrative oversight, and systems coordination supporting NHF programs and partnerships.",
   },
   {
     name: "Ms. Melissa Borden",
     title: "Director of Program Development & Grants",
-    bio: "Leads program design, grant development, and funding strategy for NHF initiatives. Brings expertise in translating mission into fundable programs, aligning outcomes with grant requirements, and supporting long-term sustainability.",
+    bio: "Leads program design, grant development, and funding strategy for NHF initiatives.",
   },
   {
-    name: "Officer Lorenzo 'Enzo' Ortiz",
-    title: "Advisor — Law Enforcement & First Responder Programs",
-    bio: "Advises on law enforcement culture, first-responder mental health needs, crisis response, and cross-system collaboration. Provides critical insight into officer wellness and public-safety partnerships.",
+    name: "Dr. Solomon Tention",
+    title: "Director of African-American Leadership & Community Impact",
+    bio: "Provides leadership development, civic engagement strategy, and culturally grounded programming advancing equity and community empowerment.",
+  },
+  {
+    name: "Dr. Armando Peelman",
+    title: "Director of Substance Use & Couples Programming (Arizona)",
+    bio: "Leads substance-use and couples-focused clinical education and community programming. (Designate)",
+  },
+  {
+    name: "Mrs. Wendy Pierce",
+    title: "Director of Eating Disorder Programs",
+    bio: "Leads education, prevention, and recovery-oriented initiatives addressing eating disorders and body image. (Designate)",
+  },
+  {
+    name: "Mrs. Shanna Wilder",
+    title: "Director of Sexual Health & Education Programs",
+    bio: "Leads sex education and relational health initiatives grounded in evidence-based and ethical practice. (Designate)",
   },
   {
     name: "Mr. Jesse Sigel",
     title: "Program Lead — Grief, Aging & Life Transitions",
-    bio: "Leads program development and education related to grief, bereavement, aging, and life transitions, supporting individuals and families navigating later-life challenges.",
+    bio: "Leads program development and education related to grief, bereavement, aging, and life transitions. (Designate)",
   },
   {
     name: "Dr. Ryan Smith",
-    title: "Program Contributor — Clinical Education & Skills-Based Programming",
-    bio: "Contributes to clinical education initiatives, skills-based programming, and professional training content. Brings expertise in mental health education and scalable program development.",
+    title: "Program Contributor — Clinical and School Counseling Education & Skills-Based Programming",
+    bio: "Contributes to clinical education initiatives and professional training content.",
+  },
+  {
+    name: "Miss Ariana Meshinchi",
+    title: "EMT Fellow — College Station",
+    bio: "Supports emergency response, informed education, community outreach, and training initiatives through a public-health and first-responder lens.",
   },
 ];
 
 const advisoryLeadership: LeaderProps[] = [
   {
-    name: "Dr. Babak Abbassi",
+    name: "Dr. Babak Abbassi, M.D. (General Surgeon)",
     title: "Director of Medical Operations (Advisory)",
-    bio: "Provides medical oversight and strategic guidance related to integrated care models, psychiatric collaboration, and medical–mental health alignment across NHF initiatives.",
+    bio: "Provides medical oversight and strategic guidance related to integrated care models, interdisciplinary collaboration, and alignment between medical and mental health services across Foundation initiatives.",
   },
   {
-    name: "Dr. Bahar Abbassi",
-    title: "Advisory — Integrative Medical Wellness & Aesthetic Strategy",
-    bio: "Advises on integrative wellness initiatives, public education, and medical-wellness collaboration aligned with NHF's outreach and community health goals.",
+    name: "Dr. Bahar Abbassi, M.D. (Plastic Surgeon)",
+    title: "Director of Integrative Medical Wellness & Aesthetic Strategy",
+    bio: "Provides strategic program guidance on integrative wellness initiatives, public education, and medical–wellness collaboration aligned with the Foundation's community health and outreach goals.",
   },
   {
-    name: "Dave Kessel, CPA",
-    title: "Financial Advisor & Compliance Consultant",
-    bio: "Provides financial oversight, accounting guidance, and compliance consultation to support responsible stewardship, transparency, and regulatory alignment for New Horizons Foundation.",
+    name: "Mr. Dave Kessel, CPA",
+    title: "Director of Financial, Tax & Compliance Oversight",
+    bio: "Provides financial leadership, accounting guidance, tax compliance, and regulatory alignment to ensure transparency and responsible stewardship. (Designate)",
   },
   {
     name: "Dr. Alan Francis",
-    title: "Advisory — Research & Instructional Design",
-    bio: "Provides guidance on research integration, instructional design, curriculum development, and evidence-based educational programming.",
+    title: "Director of Research & Instructional Design",
+    bio: "Leads research integration, instructional design, curriculum development, and evidence-based educational programming.",
   },
 ];
 
@@ -218,7 +238,7 @@ export default function LeadershipPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Leadership, Directors & Contributors
+                Leadership, Directors & Advisors
               </h1>
               <p className="text-xl text-white/90">
                 Meet the experienced clinicians, educators, and community leaders
