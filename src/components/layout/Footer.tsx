@@ -14,9 +14,10 @@ const footerNavigation = {
     { name: "Youth Leadership", href: "/programs/youth-leadership" },
   ],
   support: [
-    { name: "Donate", href: "/support" },
-    { name: "Founders Circle", href: "/support/founders-circle" },
-    { name: "Sponsorships", href: "/support/sponsorships" },
+    { name: "Donate", href: "/invest" },
+    { name: "Corporate Partners", href: "/corporate-partners" },
+    { name: "Institutional Funding", href: "/institutional-funding" },
+    { name: "Founders Circle", href: "/support" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },

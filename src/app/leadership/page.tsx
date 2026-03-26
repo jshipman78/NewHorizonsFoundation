@@ -61,6 +61,11 @@ const directorsLeadership: LeaderProps[] = [
     bio: "Leads civic, faith-based, and community partnerships. Brings extensive experience in civil rights leadership, public engagement, and community advocacy.",
   },
   {
+    name: "Mrs. Naili Woelper",
+    title: "Director of Strategic Engagement & Revenue Development",
+    bio: "Builds funding pipelines, coordinates sponsorship engagement, and structures the systems necessary for the Foundation's long-term growth and operational scalability.",
+  },
+  {
     name: "Dr. Tannaz Moein",
     title: "Director of Clinical Operations and Youth Leadership Programs",
     bio: "Oversees the Foundation's mental health clinical and supervision operations, while also leading youth leadership and education initiatives. Integrates emotional intelligence, mentorship, ethical practice, and service-oriented leadership across clinical and community-based programming.",

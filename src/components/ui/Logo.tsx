@@ -33,7 +33,7 @@ export function Logo({
   const displayWidth = variant === "icon" ? iconSizes[size] : width;
   const displayHeight = variant === "icon" ? iconSizes[size] : height;
 
-  const LogoImage = () => (
+  const logoImage = (
     <Image
       src="/logo.png"
       alt="New Horizons Foundation"
@@ -51,14 +51,14 @@ export function Logo({
         className={`inline-flex items-center ${className}`}
         aria-label="New Horizons Foundation - Go to homepage"
       >
-        <LogoImage />
+        {logoImage}
       </Link>
     );
   }
 
   return (
     <div className={`inline-flex items-center ${className}`}>
-      <LogoImage />
+      {logoImage}
     </div>
   );
 }

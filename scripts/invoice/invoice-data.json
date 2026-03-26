@@ -1,0 +1,62 @@
+{
+  "invoiceNumber": "LP-2026-001",
+  "date": "February 5, 2026",
+  "dueDate": "March 7, 2026",
+  "client": {
+    "name": "",
+    "company": "New Horizons Foundation",
+    "address": "",
+    "cityStateZip": "",
+    "email": ""
+  },
+  "lineItems": [
+    {
+      "description": "Discovery, Planning & Content Strategy \u2014 brand discovery, logo color extraction, information architecture, website copy, SEO keyword strategy, marketing strategy, brand guidelines, technical specification (5 documentation deliverables, ~2,630 lines)",
+      "hours": 4.0,
+      "rate": 95.00,
+      "amount": 380.00
+    },
+    {
+      "description": "Project Setup & Configuration \u2014 Next.js 16 / React 19 / TypeScript scaffolding, Tailwind CSS 4 custom theme with brand color system, ESLint, Vercel deployment config, environment setup",
+      "hours": 1.0,
+      "rate": 95.00,
+      "amount": 95.00
+    },
+    {
+      "description": "Design System & Component Library \u2014 17 reusable components including Button (6 variants), Card system, HeroSlider carousel, ImpactStats, PageHero, Section system, SVG dividers, Logo, mega-menu navigation with mobile responsive hamburger menu",
+      "hours": 2.0,
+      "rate": 95.00,
+      "amount": 190.00
+    },
+    {
+      "description": "Page Development \u2014 15 fully built pages: Homepage, About, Programs (overview + 4 detail pages), Leadership, Partners, Support (main + Founders Circle + Sponsorships), Contact, Privacy Policy, Terms of Service, custom 404",
+      "hours": 3.0,
+      "rate": 95.00,
+      "amount": 285.00
+    },
+    {
+      "description": "SEO, Structured Data & Accessibility \u2014 global metadata (OpenGraph, Twitter Cards), page-specific meta tags, JSON-LD schemas (Organization, Website, 4 Services, Person, Breadcrumb), dynamic sitemap, robots.txt, WCAG accessibility",
+      "hours": 1.5,
+      "rate": 95.00,
+      "amount": 142.50
+    },
+    {
+      "description": "Refinement, Integration & QA \u2014 Formspree contact form integration, design overhaul pass, content accuracy review, bug fixes, leadership roster update, testing",
+      "hours": 2.0,
+      "rate": 95.00,
+      "amount": 190.00
+    }
+  ],
+  "recurringCharges": [
+    {
+      "description": "Website Hosting \u2014 Vercel production hosting, SSL certificate, CDN, continuous deployment",
+      "frequency": "Monthly",
+      "amount": 30.00
+    }
+  ],
+  "subtotal": 1282.50,
+  "recurringTotal": 30.00,
+  "total": 1312.50,
+  "notes": "Deliverables: 15 production-ready pages, 17 reusable components, 5 strategy/planning documents, complete SEO implementation with structured data, WCAG-accessible mobile-responsive design, Vercel deployment-ready. Recurring hosting charge of $30.00/month begins upon deployment.",
+  "paymentTerms": "Net 30"
+}

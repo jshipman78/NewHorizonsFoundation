@@ -64,9 +64,8 @@ export function Button({
     );
   }
 
-  const { href, ...buttonProps } = props as ButtonAsButton;
   return (
-    <button className={classes} {...buttonProps}>
+    <button className={classes} {...(props as ButtonAsButton)}>
       {children}
     </button>
   );

@@ -7,9 +7,9 @@ import { Logo } from "@/components/ui/Logo";
 
 const navigation = [
   { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs", hasDropdown: true },
+  { name: "Programs", href: "/programs", dropdownKey: "programs" },
+  { name: "Get Involved", href: "/support", dropdownKey: "support" },
   { name: "Leadership", href: "/leadership" },
-  { name: "Partners", href: "/partners" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -56,11 +56,59 @@ const programLinks = [
   },
 ];
 
+const supportLinks = [
+  {
+    name: "Corporate Partners",
+    href: "/corporate-partners",
+    description: "Sponsorship tiers with recognition benefits for businesses and institutions",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+      </svg>
+    ),
+  },
+  {
+    name: "Institutional Funding",
+    href: "/institutional-funding",
+    description: "Grants, institutional partnerships, and compliance documentation",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Invest in Prevention",
+    href: "/invest",
+    description: "Make a tax-deductible donation — one-time, recurring, or corporate",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Founders Circle",
+    href: "/support",
+    description: "Join our founding supporters with significant giving commitments",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+      </svg>
+    ),
+  },
+];
+
+const dropdownConfigs: Record<string, { links: typeof programLinks; viewAllHref: string; viewAllLabel: string }> = {
+  programs: { links: programLinks, viewAllHref: "/programs", viewAllLabel: "View All Programs" },
+  support: { links: supportLinks, viewAllHref: "/support", viewAllLabel: "All Ways to Give" },
+};
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const pathname = usePathname();
 
   const isActive = (href: string) => {
@@ -68,22 +116,33 @@ export function Header() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
+  const isSupportActive = () => {
+    return pathname === "/support" ||
+      pathname === "/invest" ||
+      pathname === "/corporate-partners" ||
+      pathname === "/institutional-funding" ||
+      pathname.startsWith("/support/");
+  };
+
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setProgramsDropdownOpen(false);
-      }
+      const isOutside = Object.values(dropdownRefs.current).every(
+        (ref) => !ref || !ref.contains(event.target as Node)
+      );
+      if (isOutside) setOpenDropdown(null);
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Close dropdown on route change
-  useEffect(() => {
-    setProgramsDropdownOpen(false);
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setOpenDropdown(null);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
@@ -97,113 +156,128 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:gap-8">
-            {navigation.map((item) => (
-              <div key={item.name} className="relative" ref={item.hasDropdown ? dropdownRef : undefined}>
-                {item.hasDropdown ? (
-                  <>
-                    <button
-                      onClick={() => setProgramsDropdownOpen(!programsDropdownOpen)}
-                      onMouseEnter={() => setProgramsDropdownOpen(true)}
-                      className={`relative font-medium transition-colors py-2 flex items-center gap-1 ${
+            {navigation.map((item) => {
+              const hasDropdown = !!item.dropdownKey;
+              const isOpen = openDropdown === item.dropdownKey;
+              const active = item.dropdownKey === "support" ? isSupportActive() : isActive(item.href);
+              const config = item.dropdownKey ? dropdownConfigs[item.dropdownKey] : null;
+
+              return (
+                <div
+                  key={item.name}
+                  className="relative"
+                  ref={(el) => {
+                    if (item.dropdownKey) dropdownRefs.current[item.dropdownKey] = el;
+                  }}
+                >
+                  {hasDropdown ? (
+                    <>
+                      <button
+                        onClick={() => setOpenDropdown(isOpen ? null : item.dropdownKey!)}
+                        onMouseEnter={() => setOpenDropdown(item.dropdownKey!)}
+                        className={`relative font-medium transition-colors py-2 flex items-center gap-1 ${
+                          active
+                            ? "text-horizons-green"
+                            : "text-text-body hover:text-horizons-green"
+                        }`}
+                        aria-expanded={isOpen}
+                        aria-haspopup="true"
+                      >
+                        {item.name}
+                        <svg
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                        {active && (
+                          <span className="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-horizons-green" />
+                        )}
+                      </button>
+
+                      {/* Mega Menu Dropdown */}
+                      {config && (
+                        <div
+                          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[500px] bg-white rounded-xl shadow-xl border border-border transition-all duration-200 ${
+                            isOpen
+                              ? "opacity-100 visible translate-y-0"
+                              : "opacity-0 invisible -translate-y-2"
+                          }`}
+                          onMouseLeave={() => setOpenDropdown(null)}
+                        >
+                          <div className="p-4">
+                            <div className="grid grid-cols-1 gap-2">
+                              {config.links.map((link) => (
+                                <Link
+                                  key={link.href}
+                                  href={link.href}
+                                  className={`flex items-start gap-4 p-3 rounded-lg transition-colors ${
+                                    pathname === link.href
+                                      ? "bg-horizons-green-50 text-horizons-green"
+                                      : "hover:bg-bg-light"
+                                  }`}
+                                >
+                                  <div className={`flex-shrink-0 p-2 rounded-lg ${
+                                    pathname === link.href
+                                      ? "bg-horizons-green-100 text-horizons-green"
+                                      : "bg-horizons-green-50 text-horizons-green-600"
+                                  }`}>
+                                    {link.icon}
+                                  </div>
+                                  <div>
+                                    <div className="font-semibold text-text-dark">{link.name}</div>
+                                    <div className="text-sm text-text-muted mt-0.5">{link.description}</div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                            <div className="mt-4 pt-4 border-t border-border">
+                              <Link
+                                href={config.viewAllHref}
+                                className="flex items-center justify-center gap-2 text-sm font-semibold text-horizons-green hover:text-horizons-green-700 transition-colors"
+                              >
+                                {config.viewAllLabel}
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`relative font-medium transition-colors py-2 ${
                         isActive(item.href)
                           ? "text-horizons-green"
                           : "text-text-body hover:text-horizons-green"
                       }`}
-                      aria-expanded={programsDropdownOpen}
-                      aria-haspopup="true"
                     >
                       {item.name}
-                      <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          programsDropdownOpen ? "rotate-180" : ""
-                        }`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                      </svg>
                       {isActive(item.href) && (
                         <span className="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-horizons-green" />
                       )}
-                    </button>
-
-                    {/* Mega Menu Dropdown */}
-                    <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[500px] bg-white rounded-xl shadow-xl border border-border transition-all duration-200 ${
-                        programsDropdownOpen
-                          ? "opacity-100 visible translate-y-0"
-                          : "opacity-0 invisible -translate-y-2"
-                      }`}
-                      onMouseLeave={() => setProgramsDropdownOpen(false)}
-                    >
-                      <div className="p-4">
-                        <div className="grid grid-cols-1 gap-2">
-                          {programLinks.map((program) => (
-                            <Link
-                              key={program.href}
-                              href={program.href}
-                              className={`flex items-start gap-4 p-3 rounded-lg transition-colors ${
-                                pathname === program.href
-                                  ? "bg-horizons-green-50 text-horizons-green"
-                                  : "hover:bg-bg-light"
-                              }`}
-                            >
-                              <div className={`flex-shrink-0 p-2 rounded-lg ${
-                                pathname === program.href
-                                  ? "bg-horizons-green-100 text-horizons-green"
-                                  : "bg-horizons-green-50 text-horizons-green-600"
-                              }`}>
-                                {program.icon}
-                              </div>
-                              <div>
-                                <div className="font-semibold text-text-dark">{program.name}</div>
-                                <div className="text-sm text-text-muted mt-0.5">{program.description}</div>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                        <div className="mt-4 pt-4 border-t border-border">
-                          <Link
-                            href="/programs"
-                            className="flex items-center justify-center gap-2 text-sm font-semibold text-horizons-green hover:text-horizons-green-700 transition-colors"
-                          >
-                            View All Programs
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`relative font-medium transition-colors py-2 ${
-                      isActive(item.href)
-                        ? "text-horizons-green"
-                        : "text-text-body hover:text-horizons-green"
-                    }`}
-                  >
-                    {item.name}
-                    {isActive(item.href) && (
-                      <span className="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-horizons-green" />
-                    )}
-                  </Link>
-                )}
-              </div>
-            ))}
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Donate Button */}
           <div className="hidden md:flex md:items-center">
             <Link
-              href="/support"
+              href="/invest"
               className="bg-horizons-green text-white px-5 py-2.5 rounded-lg font-semibold shadow-md hover:bg-horizons-green-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
-              Support Us
+              Donate
             </Link>
           </div>
 
@@ -253,78 +327,84 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-1">
-              {navigation.map((item) => (
-                <div key={item.name}>
-                  {item.hasDropdown ? (
-                    <>
-                      <button
-                        onClick={() => setMobileExpanded(mobileExpanded === item.name ? null : item.name)}
-                        className={`w-full flex items-center justify-between font-medium py-3 px-3 rounded-lg transition-colors ${
+              {navigation.map((item) => {
+                const hasDropdown = !!item.dropdownKey;
+                const config = item.dropdownKey ? dropdownConfigs[item.dropdownKey] : null;
+                const active = item.dropdownKey === "support" ? isSupportActive() : isActive(item.href);
+
+                return (
+                  <div key={item.name}>
+                    {hasDropdown && config ? (
+                      <>
+                        <button
+                          onClick={() => setMobileExpanded(mobileExpanded === item.name ? null : item.name)}
+                          className={`w-full flex items-center justify-between font-medium py-3 px-3 rounded-lg transition-colors ${
+                            active
+                              ? "text-horizons-green bg-horizons-green-50"
+                              : "text-text-body hover:text-horizons-green hover:bg-bg-light"
+                          }`}
+                        >
+                          {item.name}
+                          <svg
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileExpanded === item.name ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                          </svg>
+                        </button>
+                        {mobileExpanded === item.name && (
+                          <div className="ml-4 mt-1 mb-2 space-y-1">
+                            {config.links.map((link) => (
+                              <Link
+                                key={link.href}
+                                href={link.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className={`block py-2 px-3 rounded-lg text-sm transition-colors ${
+                                  pathname === link.href
+                                    ? "text-horizons-green bg-horizons-green-50 font-medium"
+                                    : "text-text-muted hover:text-horizons-green hover:bg-bg-light"
+                                }`}
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                            <Link
+                              href={config.viewAllHref}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-2 px-3 rounded-lg text-sm font-semibold text-horizons-green hover:bg-horizons-green-50 transition-colors"
+                            >
+                              {config.viewAllLabel} →
+                            </Link>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`font-medium py-3 px-3 rounded-lg transition-colors block ${
                           isActive(item.href)
                             ? "text-horizons-green bg-horizons-green-50"
                             : "text-text-body hover:text-horizons-green hover:bg-bg-light"
                         }`}
                       >
                         {item.name}
-                        <svg
-                          className={`w-4 h-4 transition-transform duration-200 ${
-                            mobileExpanded === item.name ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                      </button>
-                      {mobileExpanded === item.name && (
-                        <div className="ml-4 mt-1 mb-2 space-y-1">
-                          {programLinks.map((program) => (
-                            <Link
-                              key={program.href}
-                              href={program.href}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className={`block py-2 px-3 rounded-lg text-sm transition-colors ${
-                                pathname === program.href
-                                  ? "text-horizons-green bg-horizons-green-50 font-medium"
-                                  : "text-text-muted hover:text-horizons-green hover:bg-bg-light"
-                              }`}
-                            >
-                              {program.name}
-                            </Link>
-                          ))}
-                          <Link
-                            href="/programs"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block py-2 px-3 rounded-lg text-sm font-semibold text-horizons-green hover:bg-horizons-green-50 transition-colors"
-                          >
-                            View All Programs →
-                          </Link>
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`font-medium py-3 px-3 rounded-lg transition-colors block ${
-                        isActive(item.href)
-                          ? "text-horizons-green bg-horizons-green-50"
-                          : "text-text-body hover:text-horizons-green hover:bg-bg-light"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
               <Link
-                href="/support"
+                href="/invest"
                 onClick={() => setMobileMenuOpen(false)}
                 className="bg-horizons-green text-white px-5 py-3 rounded-lg font-semibold text-center shadow-md hover:bg-horizons-green-700 hover:shadow-lg transition-all duration-200 mt-2"
               >
-                Support Us
+                Donate
               </Link>
             </div>
           </div>

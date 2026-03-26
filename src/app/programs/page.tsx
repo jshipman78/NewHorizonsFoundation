@@ -7,7 +7,7 @@ import {
   SectionTitle,
   SectionDescription,
 } from "@/components/ui/Section";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
+import { Card, CardTitle } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
   title: "Our Programs | Mental Health, Veterans, Youth & Community",
@@ -136,7 +136,7 @@ export default function ProgramsPage() {
           </SectionHeader>
 
           <div className="space-y-12">
-            {divisions.map((division, index) => (
+            {divisions.map((division) => (
               <Card
                 key={division.title}
                 hover={false}
