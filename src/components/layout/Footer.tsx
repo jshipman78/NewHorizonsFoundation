@@ -1,23 +1,29 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
+import { ORG } from "@/lib/nhf-constants";
 
 const footerNavigation = {
   about: [
     { name: "Mission & Values", href: "/about" },
-    { name: "Leadership", href: "/leadership" },
-    { name: "Partners", href: "/partners" },
+    { name: "Leadership & Vision", href: "/leadership" },
+    { name: "Transparency", href: "/transparency" },
+    { name: "Downloads", href: "/downloads" },
   ],
   programs: [
-    { name: "Mental Health Services", href: "/programs/mental-health" },
-    { name: "Veterans & First Responders", href: "/programs/veterans-first-responders" },
-    { name: "Cultural Enrichment", href: "/programs/cultural-enrichment" },
-    { name: "Youth Leadership", href: "/programs/youth-leadership" },
+    { name: "All Programs", href: "/programs" },
+    { name: "Services & Consulting", href: "/services" },
   ],
   support: [
     { name: "Donate", href: "/invest" },
-    { name: "Corporate Partners", href: "/corporate-partners" },
+    { name: "Sponsorship & Giving", href: "/sponsorship" },
+    { name: "Corporate Sponsorship", href: "/corporate-sponsorship" },
+    { name: "Founders Circle", href: "/founders-circle" },
     { name: "Institutional Funding", href: "/institutional-funding" },
-    { name: "Founders Circle", href: "/support" },
+    { name: "Why Donate", href: "/why-donate" },
+  ],
+  connect: [
+    { name: "Contact", href: "/contact" },
+    { name: "Schedule a Call", href: "/contact#schedule" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
@@ -35,16 +41,24 @@ export function Footer() {
             <div className="mb-4">
               <Logo size="md" theme="dark" />
             </div>
-            <p className="text-gray-400 text-sm max-w-sm mb-4">
-              Advancing mental health access, education, cultural enrichment,
-              and leadership development through ethical practice and
-              values-driven leadership.
+            <p className="text-gray-400 text-sm max-w-sm mb-3">
+              {ORG.legalName}
             </p>
-            <p className="text-gray-500 text-xs">
-              New Horizons Foundation is a 501(c)(3) nonprofit organization.
-              <br />
-              Contributions are tax-deductible to the extent permitted by law.
+            <p className="text-gray-500 text-xs mb-1">
+              EIN: {ORG.ein}
             </p>
+            <p className="text-gray-500 text-xs mb-1">
+              {ORG.address}
+            </p>
+            <p className="text-gray-500 text-xs mb-1">
+              {ORG.phone}
+            </p>
+            <a
+              href={`mailto:${ORG.email}`}
+              className="text-gray-500 hover:text-hope-gold text-xs transition-colors"
+            >
+              {ORG.email}
+            </a>
           </div>
 
           {/* About Links */}
@@ -62,11 +76,8 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
 
-          {/* Programs Links */}
-          <div>
-            <h3 className="font-semibold text-white mb-4">Programs</h3>
+            <h3 className="font-semibold text-white mb-4 mt-6">Programs</h3>
             <ul className="space-y-2">
               {footerNavigation.programs.map((item) => (
                 <li key={item.name}>
@@ -96,6 +107,24 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Connect + Legal */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Connect</h3>
+            <ul className="space-y-2">
+              {footerNavigation.connect.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-gray-400 hover:text-hope-gold transition-colors text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
             <h3 className="font-semibold text-white mb-4 mt-6">Legal</h3>
             <ul className="space-y-2">
               {footerNavigation.legal.map((item) => (
@@ -112,12 +141,15 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Disclaimer */}
         <div className="border-t border-gray-700 mt-8 pt-8">
+          <p className="text-gray-500 text-xs text-center max-w-3xl mx-auto mb-4">
+            {ORG.footerDisclaimer}
+          </p>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              &copy; {new Date().getFullYear()} New Horizons Foundation. All
-              rights reserved.
+              &copy; {new Date().getFullYear()} {ORG.displayName}. All rights
+              reserved.
             </p>
             <div className="flex items-center gap-4">
               <Link

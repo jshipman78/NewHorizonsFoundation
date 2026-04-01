@@ -1,22 +1,25 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { Header, Footer } from "@/components/layout";
 import { Button } from "@/components/ui/Button";
+import { PageHero } from "@/components/ui/PageHero";
 import {
   Section,
   SectionHeader,
   SectionTitle,
   SectionDescription,
 } from "@/components/ui/Section";
+import { EcosystemBadge } from "@/components/ui/EcosystemBadge";
 import { JsonLd, createPersonSchema, createBreadcrumbSchema } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "Our Leadership Team | Clinicians, Educators & Experts",
+  title: "Leadership & Vision | New Horizons Foundation",
   description:
-    "Meet the experienced clinicians, educators, and community leaders guiding New Horizons Foundation's mission in mental health access and community well-being.",
+    "Meet the experienced clinicians, educators, and community leaders driving a new model of mental health through prevention, education, and early intervention.",
   openGraph: {
-    title: "Leadership Team | New Horizons Foundation",
+    title: "Leadership & Vision | New Horizons Foundation",
     description:
-      "Meet our experienced clinicians, educators, and community leaders guiding NHF's mission.",
+      "Meet the experienced clinicians, educators, and community leaders driving a new model of mental health.",
   },
   alternates: {
     canonical: "/leadership",
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
 
 const breadcrumbs = createBreadcrumbSchema([
   { name: "Home", url: "https://newhorizonsfoundation.org" },
-  { name: "Leadership", url: "https://newhorizonsfoundation.org/leadership" },
+  { name: "Leadership & Vision", url: "https://newhorizonsfoundation.org/leadership" },
 ]);
 
 interface LeaderProps {
@@ -233,29 +236,79 @@ function LeadershipSection({
 }
 
 export default function LeadershipPage() {
+  const dean = executiveLeadership[0];
+
   return (
     <>
       <JsonLd data={[breadcrumbs, ...leadershipSchemas]} />
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-horizons-green to-foundation-blue text-white py-24 md:py-32">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Leadership, Directors & Advisors
-              </h1>
-              <p className="text-xl text-white/90">
-                Meet the experienced clinicians, educators, and community leaders
-                guiding New Horizons Foundation&apos;s mission to advance mental
-                health access and community well-being.
-              </p>
+        <PageHero
+          title="Leadership Driving a New Model of Mental Health"
+          description="Experienced clinicians, educators, and community leaders building a prevention-first approach to mental health access and community well-being."
+          variant="centered"
+        />
+
+        {/* Executive Director — Dean featured with vision */}
+        <Section background="white">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+              {/* Photo */}
+              <div className="flex-shrink-0">
+                <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-2xl overflow-hidden shadow-xl border-2 border-hope-gold/30">
+                  <Image
+                    src="/dean-aslinia.jpg"
+                    alt="Dr. S. Dean Aslinia"
+                    width={224}
+                    height={224}
+                    className="w-full h-full object-cover object-top"
+                    priority
+                  />
+                </div>
+              </div>
+              {/* Bio + Vision */}
+              <div className="flex-1 text-center lg:text-left">
+                <p className="text-sm font-semibold text-hope-gold uppercase tracking-wider mb-2">
+                  Executive Director
+                </p>
+                <h2 className="text-3xl font-bold text-text-dark mb-4">
+                  {dean.name}
+                </h2>
+                <p className="text-text-muted leading-relaxed mb-6">
+                  {dean.bio}
+                </p>
+                <div className="border-l-4 border-hope-gold pl-5">
+                  <p className="text-text-muted leading-relaxed italic">
+                    NHF was built on the belief that mental health systems must
+                    evolve beyond crisis response — creating pathways for
+                    education, awareness, and intervention before problems
+                    escalate. This model reflects a commitment to long-term
+                    community health, not short-term symptom management.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </Section>
 
-        {/* Leadership Sections */}
+        {/* Ecosystem + Team Roster */}
         <Section background="light">
+          {/* Integrated Ecosystem */}
+          <SectionHeader>
+            <SectionTitle>An Integrated Approach to Mental Health</SectionTitle>
+            <SectionDescription>
+              New Horizons Foundation operates within a coordinated ecosystem of
+              organizations — each with a distinct role — united by a shared
+              commitment to advancing mental health access, education, and
+              community well-being.
+            </SectionDescription>
+          </SectionHeader>
+          <div className="mb-16">
+            <EcosystemBadge />
+          </div>
+
+          {/* Team Roster */}
           <LeadershipSection
             title="Executive Leadership"
             leaders={executiveLeadership}
@@ -286,23 +339,20 @@ export default function LeadershipPage() {
         {/* CTA Section */}
         <Section background="gradient">
           <SectionHeader>
-            <SectionTitle className="text-white">Join Our Team</SectionTitle>
+            <SectionTitle className="text-white">
+              Partner With Us
+            </SectionTitle>
             <SectionDescription className="text-white/90">
-              We&apos;re always looking for passionate individuals who share our
-              commitment to advancing mental health access and community
-              well-being.
+              Join a growing network of organizations and leaders committed to
+              building a prevention-first model of mental health.
             </SectionDescription>
           </SectionHeader>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" variant="accent" size="lg">
-              Contact Us
+            <Button href="/partnerships" variant="accent" size="lg">
+              Request a Partnership Proposal
             </Button>
-            <Button
-              href="/partners"
-              variant="outline-light"
-              size="lg"
-            >
-              Partnership Opportunities
+            <Button href="/programs" variant="outline-light" size="lg">
+              Learn About Our Programs
             </Button>
           </div>
         </Section>

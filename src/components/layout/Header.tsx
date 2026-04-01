@@ -6,18 +6,24 @@ import { usePathname } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
 
 const navigation = [
-  { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs", dropdownKey: "programs" },
-  { name: "Get Involved", href: "/support", dropdownKey: "support" },
+  { name: "Home", href: "/" },
+  { name: "Programs", href: "/programs" },
+  { name: "Services", href: "/services" },
+  {
+    name: "Get Involved",
+    href: "/sponsorship",
+    dropdownKey: "involved",
+  },
+  { name: "Founders Circle", href: "/founders-circle" },
   { name: "Leadership", href: "/leadership" },
-  { name: "Contact", href: "/contact" },
+  { name: "Transparency", href: "/transparency" },
 ];
 
-const programLinks = [
+const involvedLinks = [
   {
-    name: "Mental Health Access",
-    href: "/programs/mental-health",
-    description: "Breaking barriers to mental health care through education and community programs",
+    name: "Sponsorship & Giving",
+    href: "/sponsorship",
+    description: "Individual and organizational giving tiers",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -25,42 +31,9 @@ const programLinks = [
     ),
   },
   {
-    name: "Veterans & First Responders",
-    href: "/programs/veterans-first-responders",
-    description: "Specialized support for those who served our communities and nation",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Youth Leadership",
-    href: "/programs/youth-leadership",
-    description: "Developing the next generation of ethical, compassionate leaders",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-      </svg>
-    ),
-  },
-  {
-    name: "Cultural Enrichment",
-    href: "/programs/cultural-enrichment",
-    description: "Building bridges through cultural understanding and community events",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-      </svg>
-    ),
-  },
-];
-
-const supportLinks = [
-  {
-    name: "Corporate Partners",
-    href: "/corporate-partners",
-    description: "Sponsorship tiers with recognition benefits for businesses and institutions",
+    name: "Corporate Sponsorship",
+    href: "/corporate-sponsorship",
+    description: "Structured B2B sponsorship with recognition benefits",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -68,28 +41,8 @@ const supportLinks = [
     ),
   },
   {
-    name: "Institutional Funding",
-    href: "/institutional-funding",
-    description: "Grants, institutional partnerships, and compliance documentation",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Invest in Prevention",
-    href: "/invest",
-    description: "Make a tax-deductible donation — one-time, recurring, or corporate",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-      </svg>
-    ),
-  },
-  {
     name: "Founders Circle",
-    href: "/support",
+    href: "/founders-circle",
     description: "Join our founding supporters with significant giving commitments",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -97,11 +50,37 @@ const supportLinks = [
       </svg>
     ),
   },
+  {
+    name: "Institutional Funding",
+    href: "/institutional-funding",
+    description: "Grants, institutional partnerships, and compliance docs",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Why Donate",
+    href: "/why-donate",
+    description: "See the impact of your contribution",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      </svg>
+    ),
+  },
 ];
 
-const dropdownConfigs: Record<string, { links: typeof programLinks; viewAllHref: string; viewAllLabel: string }> = {
-  programs: { links: programLinks, viewAllHref: "/programs", viewAllLabel: "View All Programs" },
-  support: { links: supportLinks, viewAllHref: "/support", viewAllLabel: "All Ways to Give" },
+const dropdownConfigs: Record<
+  string,
+  { links: typeof involvedLinks; viewAllHref: string; viewAllLabel: string }
+> = {
+  involved: {
+    links: involvedLinks,
+    viewAllHref: "/sponsorship",
+    viewAllLabel: "All Ways to Give",
+  },
 };
 
 export function Header() {
@@ -116,15 +95,17 @@ export function Header() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const isSupportActive = () => {
-    return pathname === "/support" ||
-      pathname === "/invest" ||
-      pathname === "/corporate-partners" ||
+  const isInvolvedActive = () => {
+    return (
+      pathname === "/sponsorship" ||
+      pathname === "/corporate-sponsorship" ||
+      pathname === "/founders-circle" ||
       pathname === "/institutional-funding" ||
-      pathname.startsWith("/support/");
+      pathname === "/why-donate" ||
+      pathname === "/invest"
+    );
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       const isOutside = Object.values(dropdownRefs.current).every(
@@ -136,7 +117,6 @@ export function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close dropdown on route change
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
@@ -155,25 +135,33 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-8">
+          <div className="hidden lg:flex lg:items-center lg:gap-7">
             {navigation.map((item) => {
               const hasDropdown = !!item.dropdownKey;
               const isOpen = openDropdown === item.dropdownKey;
-              const active = item.dropdownKey === "support" ? isSupportActive() : isActive(item.href);
-              const config = item.dropdownKey ? dropdownConfigs[item.dropdownKey] : null;
+              const active =
+                item.dropdownKey === "involved"
+                  ? isInvolvedActive()
+                  : isActive(item.href);
+              const config = item.dropdownKey
+                ? dropdownConfigs[item.dropdownKey]
+                : null;
 
               return (
                 <div
                   key={item.name}
                   className="relative"
                   ref={(el) => {
-                    if (item.dropdownKey) dropdownRefs.current[item.dropdownKey] = el;
+                    if (item.dropdownKey)
+                      dropdownRefs.current[item.dropdownKey] = el;
                   }}
                 >
                   {hasDropdown ? (
                     <>
                       <button
-                        onClick={() => setOpenDropdown(isOpen ? null : item.dropdownKey!)}
+                        onClick={() =>
+                          setOpenDropdown(isOpen ? null : item.dropdownKey!)
+                        }
                         onMouseEnter={() => setOpenDropdown(item.dropdownKey!)}
                         className={`relative font-medium transition-colors py-2 flex items-center gap-1 ${
                           active
@@ -193,17 +181,20 @@ export function Header() {
                           strokeWidth="2"
                           stroke="currentColor"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
                         </svg>
                         {active && (
                           <span className="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-horizons-green" />
                         )}
                       </button>
 
-                      {/* Mega Menu Dropdown */}
                       {config && (
                         <div
-                          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[500px] bg-white rounded-xl shadow-xl border border-border transition-all duration-200 ${
+                          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] bg-white rounded-xl shadow-xl border border-border transition-all duration-200 ${
                             isOpen
                               ? "opacity-100 visible translate-y-0"
                               : "opacity-0 invisible -translate-y-2"
@@ -222,16 +213,22 @@ export function Header() {
                                       : "hover:bg-bg-light"
                                   }`}
                                 >
-                                  <div className={`flex-shrink-0 p-2 rounded-lg ${
-                                    pathname === link.href
-                                      ? "bg-horizons-green-100 text-horizons-green"
-                                      : "bg-horizons-green-50 text-horizons-green-600"
-                                  }`}>
+                                  <div
+                                    className={`flex-shrink-0 p-2 rounded-lg ${
+                                      pathname === link.href
+                                        ? "bg-horizons-green-100 text-horizons-green"
+                                        : "bg-horizons-green-50 text-horizons-green-600"
+                                    }`}
+                                  >
                                     {link.icon}
                                   </div>
                                   <div>
-                                    <div className="font-semibold text-text-dark">{link.name}</div>
-                                    <div className="text-sm text-text-muted mt-0.5">{link.description}</div>
+                                    <div className="font-semibold text-text-dark">
+                                      {link.name}
+                                    </div>
+                                    <div className="text-sm text-text-muted mt-0.5">
+                                      {link.description}
+                                    </div>
                                   </div>
                                 </Link>
                               ))}
@@ -242,8 +239,18 @@ export function Header() {
                                 className="flex items-center justify-center gap-2 text-sm font-semibold text-horizons-green hover:text-horizons-green-700 transition-colors"
                               >
                                 {config.viewAllLabel}
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth="2"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                                  />
                                 </svg>
                               </Link>
                             </div>
@@ -272,7 +279,7 @@ export function Header() {
           </div>
 
           {/* Donate Button */}
-          <div className="hidden md:flex md:items-center">
+          <div className="hidden lg:flex lg:items-center">
             <Link
               href="/invest"
               className="bg-horizons-green text-white px-5 py-2.5 rounded-lg font-semibold shadow-md hover:bg-horizons-green-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
@@ -282,7 +289,7 @@ export function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -325,19 +332,28 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-1">
               {navigation.map((item) => {
                 const hasDropdown = !!item.dropdownKey;
-                const config = item.dropdownKey ? dropdownConfigs[item.dropdownKey] : null;
-                const active = item.dropdownKey === "support" ? isSupportActive() : isActive(item.href);
+                const config = item.dropdownKey
+                  ? dropdownConfigs[item.dropdownKey]
+                  : null;
+                const active =
+                  item.dropdownKey === "involved"
+                    ? isInvolvedActive()
+                    : isActive(item.href);
 
                 return (
                   <div key={item.name}>
                     {hasDropdown && config ? (
                       <>
                         <button
-                          onClick={() => setMobileExpanded(mobileExpanded === item.name ? null : item.name)}
+                          onClick={() =>
+                            setMobileExpanded(
+                              mobileExpanded === item.name ? null : item.name
+                            )
+                          }
                           className={`w-full flex items-center justify-between font-medium py-3 px-3 rounded-lg transition-colors ${
                             active
                               ? "text-horizons-green bg-horizons-green-50"
@@ -354,7 +370,11 @@ export function Header() {
                             strokeWidth="2"
                             stroke="currentColor"
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                            />
                           </svg>
                         </button>
                         {mobileExpanded === item.name && (

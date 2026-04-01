@@ -161,6 +161,24 @@ export default function Home() {
         {/* Trust Indicators Bar */}
         <TrustIndicators />
 
+        {/* Emotional Hook Section */}
+        <Section background="white">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+              Mental health should not begin at crisis
+            </h2>
+            <p className="text-lg text-text-body mb-8 leading-relaxed">
+              New Horizons Foundation exists to help communities move upstream
+              through prevention, education, early support, and ethical
+              collaboration. We believe healthier systems are built before
+              preventable suffering becomes crisis.
+            </p>
+            <Button href="/founders-circle" variant="secondary">
+              Explore the Founders Circle
+            </Button>
+          </div>
+        </Section>
+
         {/* Mission Preview Section */}
         <div className="relative">
           <Section background="white">

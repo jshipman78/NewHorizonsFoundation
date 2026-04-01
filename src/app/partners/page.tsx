@@ -250,6 +250,88 @@ export default function PartnersPage() {
           </div>
         </Section>
 
+        {/* Featured Strategic Partners */}
+        <Section background="light">
+          <SectionHeader>
+            <SectionTitle>Featured Strategic Partners</SectionTitle>
+            <SectionDescription>
+              New Horizons Foundation is proud to recognize mission-aligned
+              organizations and collaborators helping advance mental health
+              access, ethical leadership, education, and community resilience.
+            </SectionDescription>
+          </SectionHeader>
+          <div className="space-y-10">
+            {[
+              {
+                group: "Education & School Partnerships",
+                partners: [
+                  "McKinney ISD",
+                  "Student Family Wellness Community Center",
+                  "Arcadia Christian Academy",
+                  "Francis Educational Consulting",
+                ],
+              },
+              {
+                group: "Clinical & Mental Health Partners",
+                partners: [
+                  "New Horizons Center for Healing",
+                  "American Psychotherapy Institute",
+                  "Chapter and Pages Counseling \u2014 Autism & Neurodivergent Partner Clinic",
+                  "The Nourishment Center \u2014 Eating Disorders Partner Clinic",
+                  "Holistic Sex Therapy \u2014 Partner Clinic",
+                  "Beyond Pages \u2014 Nonprofit Partner",
+                ],
+              },
+              {
+                group: "Faith & Community Partners",
+                partners: [
+                  "Church on the Rock",
+                  "Behavioral Coalition of Collin County",
+                ],
+              },
+              {
+                group: "Medical & Wellness Partners",
+                partners: [
+                  "Lone Star Dental \u2014 Supporting Founder",
+                  "Abbassi Surgical Associates",
+                ],
+              },
+              {
+                group: "Professional Services & Business Partners",
+                partners: [
+                  "Zendeh Del Law Firm",
+                  "David Kessel, CPA",
+                  "Aslinia Consulting Group",
+                ],
+              },
+              {
+                group: "Media, Design & Communications Partners",
+                partners: [
+                  "Luminous Productions \u2014 Digital Branding Partner",
+                ],
+              },
+            ].map((section) => (
+              <div key={section.group}>
+                <h3 className="text-lg font-semibold text-text-dark mb-4">
+                  {section.group}
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {section.partners.map((partner) => (
+                    <div
+                      key={partner}
+                      className="bg-white rounded-xl p-5 border border-border text-center flex items-center justify-center min-h-[80px]"
+                    >
+                      <span className="text-sm font-medium text-text-body">
+                        {partner}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+
         {/* CTA Section */}
         <Section background="gradient">
           <SectionHeader>
@@ -266,11 +348,11 @@ export default function PartnersPage() {
               Contact Us to Partner
             </Button>
             <Button
-              href="/support"
+              href="/founders-circle"
               variant="outline-light"
               size="lg"
             >
-              Support Our Mission
+              View Founders Circle
             </Button>
           </div>
         </Section>

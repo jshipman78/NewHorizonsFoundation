@@ -17,38 +17,47 @@ export const metadata: Metadata = {
 
 const givingLevels = [
   {
-    name: "Supporting Founder",
-    amount: "$2,500 – $4,999",
-    description: "Foundation-level support",
+    name: "Founding Member",
+    amount: "$5,000",
+    description: "For individuals, families, and professionals who want to stand early and visibly behind the mission.",
     features: [
-      "Recognition as Supporting Founder",
-      "Quarterly impact updates",
-      "Invitation to annual gathering",
+      "Recognition as a Founding Member",
+      "Name listed on the Founders Circle Recognition page",
+      "Founding Member certificate",
+      "Milestone and impact updates",
+      "Early alignment with the foundation\u2019s growth",
     ],
+    cta: "Become a Founding Member",
+    href: "/founders-circle",
   },
   {
     name: "Founding Partner",
-    amount: "$5,000 – $9,999",
-    description: "Partnership-level commitment",
+    amount: "$10,000\u2013$25,000",
+    description: "For mission-aligned leaders, firms, and organizations seeking stronger visibility and deeper alignment.",
     features: [
-      "Recognition as Founding Partner",
-      "Quarterly impact updates",
-      "Priority invitation to events",
-      "Direct access to leadership",
+      "Everything in Founding Member, plus:",
+      "Elevated recognition on the website",
+      "Public recognition in selected launch and milestone communications",
+      "Priority invitations to events and partnership opportunities",
+      "Stronger public alignment with a values-driven mental health initiative",
     ],
     highlighted: true,
+    cta: "Become a Founding Partner",
+    href: "/founders-circle",
   },
   {
-    name: "Charter Founder",
-    amount: "$10,000+",
-    description: "Charter-level founding support",
+    name: "Founding Patron",
+    amount: "$25,000+",
+    description: "For those who want to make a significant founding investment and help shape the long-term trajectory of New Horizons Foundation.",
     features: [
-      "Recognition as Charter Founder",
-      "Monthly impact updates",
-      "VIP event access",
-      "Direct access to Executive Director",
-      "Named recognition opportunities",
+      "Everything in Founding Partner, plus:",
+      "Prominent recognition across key foundation materials",
+      "Priority leadership access and stewardship",
+      "Strategic alignment opportunities where appropriate",
+      "Customized recognition based on contribution and scope",
     ],
+    cta: "Inquire About Founding Patron Recognition",
+    href: "/founders-circle#patron-inquiry",
   },
 ];
 
@@ -93,7 +102,7 @@ const waysToGive = [
     title: "Founders Circle",
     description:
       "Join our founding supporters with a significant commitment that establishes NHF's foundation.",
-    href: "#founders-circle",
+    href: "/founders-circle",
     cta: "Join",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -205,11 +214,11 @@ export default function SupportPage() {
                   ))}
                 </ul>
                 <Button
-                  href="/invest"
+                  href={level.href}
                   variant={level.highlighted ? "primary" : "outline"}
                   className="w-full"
                 >
-                  Join as {level.name}
+                  {level.cta}
                 </Button>
               </div>
             ))}
