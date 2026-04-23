@@ -10,7 +10,6 @@ import {
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ORG } from "@/lib/nhf-constants";
-import { sanityClient } from "@/lib/sanity";
 
 export const metadata: Metadata = {
   title: "Documents & Resources | New Horizons Foundation",
@@ -30,24 +29,9 @@ interface SanityDocument {
   comingSoon: boolean;
 }
 
-const DOCUMENTS_QUERY = `*[_type == "downloadableDocument" && visible == true] | order(category asc, sortOrder asc) {
-  _id,
-  title,
-  description,
-  category,
-  "fileUrl": file.asset->url,
-  externalUrl,
-  format,
-  sortOrder,
-  comingSoon
-}`;
-
 async function getDocuments(): Promise<SanityDocument[]> {
-  try {
-    return await sanityClient.fetch(DOCUMENTS_QUERY);
-  } catch {
-    return [];
-  }
+  // Sanity CMS not yet configured — return empty until connected
+  return [];
 }
 
 function DocumentCard({ doc }: { doc: SanityDocument }) {
