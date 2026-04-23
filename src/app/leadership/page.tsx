@@ -47,6 +47,29 @@ const executiveLeadership: LeaderProps[] = [
   },
 ];
 
+const boardOfTrustees: LeaderProps[] = [
+  {
+    name: "Dr. Dean Aslinia, Ph.D., MBA, LPC-S, NCC",
+    title: "President of the Board",
+    bio: "Serves as President of the Board of Trustees, providing strategic oversight and ensuring alignment with the Foundation's mission and long-term vision.",
+  },
+  {
+    name: "Mrs. Farah Abbassi, M.S.",
+    title: "Treasurer",
+    bio: "Brings a strong background in organizational management and financial oversight, supporting the Foundation's commitment to fiscal responsibility, transparency, and long-term sustainability. A former mathematics professor and the widow of Dr. Amir Abbassi, she continues to honor and advance his vision and enduring commitment to mental health, education, and community impact.",
+  },
+  {
+    name: "Dr. Nima Khosravani, M.D.",
+    title: "Secretary",
+    bio: "A physician who provides medical insight and strategic guidance to support the integration of healthcare perspectives within the Foundation's initiatives, ensuring programming aligns with broader health system considerations and interdisciplinary collaboration.",
+  },
+  {
+    name: "Dr. Vafa Mirshams, DDS",
+    title: "Trustee",
+    bio: "Brings professional leadership and community engagement experience, contributing to strategic planning and organizational oversight. As a practicing dentist, she supports the Foundation's commitment to community-centered impact and sustainable growth.",
+  },
+];
+
 const directorsLeadership: LeaderProps[] = [
   {
     name: "Ms. Gina Afshar",
@@ -64,7 +87,7 @@ const directorsLeadership: LeaderProps[] = [
     bio: "Leads civic, faith-based, and community partnerships. Brings extensive experience in civil rights leadership, public engagement, and community advocacy.",
   },
   {
-    name: "Mrs. Naili Woelper",
+    name: "Mrs. Naili Woelper-Thompson",
     title: "Director of Strategic Engagement & Revenue Development",
     bio: "Builds funding pipelines, coordinates sponsorship engagement, and structures the systems necessary for the Foundation's long-term growth and operational scalability.",
   },
@@ -77,6 +100,26 @@ const directorsLeadership: LeaderProps[] = [
     name: "Dr. Catherine Hallam",
     title: "Director of Autism & Neurodevelopmental Programs (Arizona)",
     bio: "Leads autism and neurodevelopmental initiatives through community-based and educational programming.",
+  },
+  {
+    name: "Dr. Ayda Melika, Ph.D.",
+    title: "Director of Media, Storytelling & Mental Health Advocacy",
+    bio: "Leads the development of media-driven mental health storytelling and advocacy initiatives, leveraging film, digital content, and narrative platforms to reduce stigma, amplify community voices, and expand public engagement with prevention-based mental health education. Founder and director of the Urban Media Institute, with a Ph.D. from UC Berkeley.",
+  },
+  {
+    name: "Officer Lorenzo (Enzo) Ortiz, M.S.",
+    title: "Director of Crisis Negotiation & Law Enforcement Training",
+    bio: "Leads the Foundation's connection to law enforcement agencies, developing and delivering crisis negotiation and mental health-informed training that equips first responders with the skills to manage high-risk situations, support community safety, and improve outcomes through empathy, de-escalation, and trauma-informed response. Author of Bringing Hope: One Police Officer's Journey with Empathy on the Path to Service.",
+  },
+  {
+    name: "Mrs. Lacey Ranck",
+    title: "Director of First Responder & Veteran Programs",
+    bio: "Leads the development and implementation of prevention-focused mental health programs for first responders, veterans, and their families. Oversees program design, community partnerships, and student engagement pipelines to support early intervention and long-term resilience. Previously served with the Maricopa County Sheriff's Office.",
+  },
+  {
+    name: "Miss Erika Aguilar",
+    title: "Director of Family & Community Engagement (Spanish Outreach)",
+    bio: "Leads culturally responsive family and community engagement efforts, expanding access to mental health education and support within Spanish-speaking communities through relationship-driven outreach, parent networks, and youth leadership development. Founding Leader of the NHF Latina Family Network.",
   },
 ];
 
@@ -92,9 +135,9 @@ const programLeadership: LeaderProps[] = [
     bio: "Leads program design, grant development, and funding strategy for NHF initiatives.",
   },
   {
-    name: "Dr. Solomon Tention",
-    title: "Director of African-American Leadership & Community Impact",
-    bio: "Provides leadership development, civic engagement strategy, and culturally grounded programming advancing equity and community empowerment.",
+    name: "Dr. Solomon Tention, Ph.D.",
+    title: "Director of Leadership & Community Impact",
+    bio: "Leads leadership development and culturally grounded programming that advances equity, civic engagement, and community empowerment. Extensive experience in institutional advancement, academic affairs, and student development across diverse community college systems.",
   },
   {
     name: "Dr. Armando Peelman",
@@ -113,8 +156,8 @@ const programLeadership: LeaderProps[] = [
   },
   {
     name: "Mr. Jesse Sigel",
-    title: "Program Lead — Grief, Aging & Life Transitions",
-    bio: "Leads program development and education related to grief, bereavement, aging, and life transitions. (Designate)",
+    title: "Program Lead — Youth and Men's Group Programming, Grief, Aging & Life Transitions",
+    bio: "Leads programming focused on grief, bereavement, aging, and major life transitions, as well as youth and men's group programming. Creates spaces for connection, reflection, and skill-building. (Designate)",
   },
   {
     name: "Dr. Ryan Smith",
@@ -262,7 +305,7 @@ export default function LeadershipPage() {
                     alt="Dr. S. Dean Aslinia"
                     width={224}
                     height={224}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover scale-[1.6] object-[center_28%]"
                     priority
                   />
                 </div>
@@ -313,6 +356,11 @@ export default function LeadershipPage() {
             title="Executive Leadership"
             leaders={executiveLeadership}
             featured={true}
+          />
+
+          <LeadershipSection
+            title="Board of Trustees"
+            leaders={boardOfTrustees}
           />
 
           <LeadershipSection
