@@ -156,7 +156,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         {/* Hero Slider */}
-        <HeroSlider slides={heroSlides} autoPlayInterval={7000} className="mt-4" />
+        <HeroSlider slides={heroSlides} autoPlayInterval={7000} />
 
         {/* Trust Indicators Bar */}
         <TrustIndicators />

@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
             currency: "usd",
             product_data: {
               name: `New Horizons Foundation — ${description}`,
-              description: `Tax-deductible ${description.toLowerCase()} to support early-intervention mental health programs in North Texas.`,
+              description: `Tax-deductible ${description.toLowerCase()} to support early-intervention mental health programs in your community.`,
             },
             unit_amount: cents,
           },

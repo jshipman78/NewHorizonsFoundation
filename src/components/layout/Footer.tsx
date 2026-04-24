@@ -5,21 +5,23 @@ import { ORG } from "@/lib/nhf-constants";
 const footerNavigation = {
   about: [
     { name: "Mission & Values", href: "/about" },
-    { name: "Leadership & Vision", href: "/leadership" },
+    { name: "Leadership Team", href: "/leadership" },
     { name: "Transparency", href: "/transparency" },
     { name: "Downloads", href: "/downloads" },
   ],
-  programs: [
+  work: [
     { name: "All Programs", href: "/programs" },
     { name: "Services & Consulting", href: "/services" },
+    { name: "University Chapters", href: "/chapters" },
+    { name: "Partnerships", href: "/partnerships" },
   ],
   support: [
     { name: "Donate", href: "/invest" },
-    { name: "Sponsorship & Giving", href: "/sponsorship" },
-    { name: "Corporate Sponsorship", href: "/corporate-sponsorship" },
+    { name: "Sponsorship Tiers", href: "/sponsorship" },
     { name: "Founders Circle", href: "/founders-circle" },
-    { name: "Institutional Funding", href: "/institutional-funding" },
-    { name: "Why Donate", href: "/why-donate" },
+    { name: "Corporate Sponsorships", href: "/corporate-sponsorship" },
+    { name: "Grants & Foundations", href: "/institutional-funding" },
+    { name: "Why Give", href: "/why-donate" },
   ],
   connect: [
     { name: "Contact", href: "/contact" },
@@ -77,9 +79,9 @@ export function Footer() {
               ))}
             </ul>
 
-            <h3 className="font-semibold text-white mb-4 mt-6">Programs</h3>
+            <h3 className="font-semibold text-white mb-4 mt-6">Our Work</h3>
             <ul className="space-y-2">
-              {footerNavigation.programs.map((item) => (
+              {footerNavigation.work.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -94,7 +96,7 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Support</h3>
+            <h3 className="font-semibold text-white mb-4">Support Us</h3>
             <ul className="space-y-2">
               {footerNavigation.support.map((item) => (
                 <li key={item.name}>
